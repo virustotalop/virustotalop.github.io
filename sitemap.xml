@@ -4,6 +4,22 @@
     
     <url>
     
+      <loc>/project/anonymizing-text/</loc>
+      <lastmod>2018-08-16T00:00:00-07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/project/trident/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>/post/</loc>
       <lastmod>2017-01-01T00:00:00-08:00</lastmod>
     </url>
@@ -28,8 +44,43 @@
     
     <url>
     
-      <loc>/</loc>
-      <lastmod>2017-10-15T00:00:00-07:00</lastmod>
+      <loc>/post/burnout/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/annotation/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/annotation-based/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/browser-plugin/</loc>
+      <lastmod>2018-08-16T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/burnout/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -38,6 +89,69 @@
     <url>
     
       <loc>/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/event/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/event-bus/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/firefox/</loc>
+      <lastmod>2018-08-16T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/linguistics/</loc>
+      <lastmod>2018-08-16T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/programmer/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/programming/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/project/</loc>
+      <lastmod>2018-08-16T00:00:00-07:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -54,6 +168,25 @@
     <url>
     
       <loc>/tags/</loc>
+      <lastmod>2018-08-15T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/text/</loc>
+      <lastmod>2018-08-16T00:00:00-07:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/</loc>
+      <lastmod>2017-10-15T00:00:00-07:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -1,15 +1,115 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on About Me</title>
+    <title>Tags on virustotalop</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on About Me</description>
+    <description>Recent content in Tags on virustotalop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 -0700</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Annotation</title>
+      <link>/tags/annotation/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/annotation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Annotation based</title>
+      <link>/tags/annotation-based/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/annotation-based/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Browser plugin</title>
+      <link>/tags/browser-plugin/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/browser-plugin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Burnout</title>
+      <link>/tags/burnout/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/burnout/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Event</title>
+      <link>/tags/event/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Event-bus</title>
+      <link>/tags/event-bus/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/event-bus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firefox</title>
+      <link>/tags/firefox/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/firefox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linguistics</title>
+      <link>/tags/linguistics/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/linguistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programmer</title>
+      <link>/tags/programmer/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/programmer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>/tags/programming/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text</title>
+      <link>/tags/text/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 -0700</pubDate>
+      
+      <guid>/tags/text/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
