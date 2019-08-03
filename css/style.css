@@ -1,0 +1,67 @@
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Usage as a mixin
+.element {
+  .center-block();
+}
+
+.font {
+  font-family: "Lucida Console";
+}
+
+.top-header {
+  font-size: 3rem;
+  padding-top: 2.5rem;
+}
+
+.top-text {
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.icon-top-bar {
+  padding-bottom: 1rem;
+}
+
+/*.btn-primary {
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem black)	
+}*/
+
+.about {
+  word-wrap: normal;
+  width: 50%;
+}
+
+
+.project-header {
+  font-size: 2rem;
+}
+
+.big-icon {
+  font-size: 2rem;
+  color: black;
+  padding: 5px;
+}
+
+.card-section {
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.github-card {
+  width: 20rem;
+  margin: 0.5rem;
+}
+
+.footer {
+  word-wrap: normal; 
+}
+
+.footer-link {
+  color: #007bff;
+  text-decoration: underline;
+}
