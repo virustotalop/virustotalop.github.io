@@ -8,7 +8,7 @@ Feel free to fork this or use bits and pieces for your own personal website, blo
 
 ## Components
 
-You will need javascript for these components.
+You will need bootstrap for these components.
 
 ### Cards
 
