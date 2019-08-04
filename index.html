@@ -26,18 +26,23 @@
 	</head>
 	<body>
 		<div class="font container">
+		
+			<!-- Top header -->
 			<div class="justify-content-center row top-header">
 				<img id="gravatar" class="img-responsive rounded" src="img/gravatar.png" height=100 width=100 alt="gravatar">
 				<div class="top-text">
 					VIRUSTOTALOP
 				</div>
 			</div>
-				
+			
+			<!-- Icon bar -->
 			<div class="justify-content-center row icon-top-bar"> 
 				<a class="btn" href="https://github.com/virustotalop" target="_blank"><i class="fab fa-github big-icon"></i></a>
 				<a class="btn" href="mailto:virustotalop@gmail.com"><i class="fas fa-envelope big-icon" style="color:#007bff"></i></a>
 				<button class="btn btn-default" data-toggle="modal" data-target="#discord-modal"><i class="fab fa-discord big-icon" style="color:#7289d9"></i></button>
 			</div>
+			
+			<!-- About -->
 			<div class="justify-content-center row">
 				<p class="about">
 					Hello World! My name is Steven but I go by VirusTotal online.
@@ -46,11 +51,15 @@
 					Below you can see some of the projects that I have worked on at Club Obsidian and some of my personal projects.
 				</p>
 			</div>
+			
+			<!-- Projects header -->
 			<div class="justify-content-center row">
 				<div class="project-header">
 					PROJECTS
 				</div>
 			</div>
+			
+			<!-- Cards -->
 			<div id= "cards" class="card-section justify-content-center row">
 				<script>
 					var element = document.getElementById("cards");
@@ -68,6 +77,8 @@
 					Unfortunately you need Javascript enabled to see my projects, please enable Javascript if you want to see them!
 				</noscript>
 			</div>
+			
+			<!-- Footer -->
 			<div id="footer" class="justify-content-center row">
 				<p>
 					Created with  <i class="fas fa-heart" style="color:red"></i> with <a href="https://getbootstrap.com/" target="_blank" class="footer-link">Bootstrap</a> and <a href="https://fontawesome.com" target="_blank" class="footer-link">Fontawesome.</a> 
@@ -89,9 +100,10 @@
 						data = replaceAll("\n", "</br>", data);
 						new Modal("license-modal", "License", data).create(element);
 					}, 'text');
-					
+
 				</script>
 			</div>
+			
 		</div>
 	</body>
 </html>
