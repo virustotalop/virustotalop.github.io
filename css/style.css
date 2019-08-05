@@ -55,6 +55,10 @@
   margin: 0.5rem;
 }
 
+.footer {
+  width: 80%;
+}
+
 .footer-link {
   color: #007bff;
   text-decoration: underline;
