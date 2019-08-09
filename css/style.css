@@ -1,5 +1,5 @@
 .font {
-  font-family: "Lucida Console";
+  font-family: 'Roboto Mono', monospace;
 }
 
 .top-header {
@@ -18,6 +18,10 @@
   color: black;
   padding: 5px;
   margin-bottom: 0.5rem;
+}
+
+.discord-icon {
+  font-size: 1.85rem;
 }
 
 .big-icon:hover {
