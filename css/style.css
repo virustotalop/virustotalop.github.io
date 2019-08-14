@@ -44,8 +44,8 @@
   font-size: 2rem;
 }
 
-.btn:focus {
-  outline: none;
+.btn {
+  box-shadow: none !important;
 }
 
 .btn-primary:hover {
