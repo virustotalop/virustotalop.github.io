@@ -9,9 +9,13 @@
 
 .top-text {
   padding-top: 1rem;
-  padding-left: 1rem;
 }
 
+@media(min-width: 480px) {
+	.top-text {
+      padding-left: 1rem;
+    }
+}
 
 .big-icon {
   font-size: 2rem;
