@@ -36,10 +36,14 @@
 
 .about {
   word-wrap: normal;
-  width: 50%;
+  width: 80%;
 }
 
-
+@media(min-width: 1000px) {
+  .about {
+   width: 50%; 
+  }
+}
 .project-header {
   font-size: 2rem;
 }
