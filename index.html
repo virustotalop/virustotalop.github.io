@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Hello World!</title>
-		<script src="js/card.js" async></script>
+		<script src="https://cdn.jsdelivr.net/gh/ravenlab/codecard@1.0.2/codecard.js" integrity="sha256-mtM6MIO2X3kyNqCL1FQyQXAdNICSleIiJt3GB/XsdRQ=" crossorigin="anonymous"></script>
 		<script src="js/modal.js" async></script>
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" async></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" async></script>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,7 +22,6 @@
 				}
 				return data;
 			}
-		
 		</script>
 	</head>
 	<body>
@@ -64,15 +63,15 @@
 			<div id= "cards" class="card-section justify-content-center row">
 				<script>
 					var element = document.getElementById("cards");
-					new Card("AnonymizingText", "fas fa-envelope-open-text", "A project in text anonymization.", "https://github.com/virustotalop/AnonymizingText").render(element);
-					new Card("DynamicGui", "fas fa-window-maximize", "A plugin to make writing menus for minecraft easy.", "https://www.github.com/ClubObsidian/DynamicGui").render(element);
-					new Card("DynamicGuiParser", "fas fa-project-diagram", "Next generation parser for DynamicGui using AST.", "https://github.com/ClubObsidian/DynamicGuiParser").render(element);
-					new Card("Hydra", "fas fa-clone", "An application server for event-driven programming.",  "https://github.com/ClubObsidian/hydra").render(element);
-					new Card("Trident", "fas fa-bolt", "A fast eventbus that uses bytecode generation.",  "https://github.com/ClubObsidian/trident").render(element);
-					new Card("ClassyJava", "fas fa-book", "A wip Java programming textbook.", "https://github.com/virustotalop/classyjava").render(element);
-					new Card("Poseidon", "fas fa-plug", "A plugin platform that is to be implemented in Hydra.", "https://github.com/ClubObsidian/poseidon").render(element);
-					new Card("Wrappy", "fas fa-file", "A configuration library for yaml, xml, json and hocon.", "https://github.com/ClubObsidian/wrappy").render(element);
-					new Card("Random.js", "fas fa-random", "A port of Java's Random class to Javascript.", "https://github.com/virustotalop/random.js").render(element);
+					new CodeCard("AnonymizingText", "fas fa-envelope-open-text", "A project in text anonymization.", "https://github.com/virustotalop/AnonymizingText").render(element);
+					new CodeCard("DynamicGui", "fas fa-window-maximize", "A plugin to make writing menus for minecraft easy.", "https://www.github.com/ClubObsidian/DynamicGui").render(element);
+					new CodeCard("DynamicGuiParser", "fas fa-project-diagram", "Next generation parser for DynamicGui using AST.", "https://github.com/ClubObsidian/DynamicGuiParser").render(element);
+					new CodeCard("Hydra", "fas fa-clone", "An application server for event-driven programming.",  "https://github.com/ClubObsidian/hydra").render(element);
+					new CodeCard("Trident", "fas fa-bolt", "A fast eventbus that uses bytecode generation.",  "https://github.com/ClubObsidian/trident").render(element);
+					new CodeCard("ClassyJava", "fas fa-book", "A wip Java programming textbook.", "https://github.com/virustotalop/classyjava").render(element);
+					new CodeCard("Poseidon", "fas fa-plug", "A plugin platform that is to be implemented in Hydra.", "https://github.com/ClubObsidian/poseidon").render(element);
+					new CodeCard("Wrappy", "fas fa-file", "A configuration library for yaml, xml, json and hocon.", "https://github.com/ClubObsidian/wrappy").render(element);
+					new CodeCard("Random.js", "fas fa-random", "A port of Java's Random class to Javascript.", "https://github.com/virustotalop/random.js").render(element);
 				</script>
 				<noscript>
 					Unfortunately you need Javascript enabled to see my projects, please enable Javascript if you want to see them!
