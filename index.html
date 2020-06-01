@@ -37,9 +37,11 @@
 			
 			<!-- Icon bar -->
 			<div class="justify-content-center row icon-top-bar"> 
+				<a class="btn" href="#home"><i class="fas fa-home big-icon" style="color:#007bff"></i></a>
 				<a class="btn" href="https://github.com/virustotalop" target="_blank"><i class="fab fa-github big-icon"></i></a>
 				<a class="btn" href="mailto:virustotalop@gmail.com"><i class="fas fa-envelope big-icon" style="color:#007bff"></i></a>
 				<button class="btn btn-default" data-toggle="modal" data-target="#discord-modal"><i class="fab fa-discord big-icon discord-icon" style="color:#7289d9"></i></button>
+				<a class="btn" href="#blog"><i class="fas fa-blog big-icon" style="color:#007bff"></i></a>
 			</div>
 			
 			<!-- About -->
@@ -60,9 +62,9 @@
 			</div>
 			
 			<!-- Cards -->
-			<div id= "cards" class="card-section justify-content-center row">
+			<div id= "projects" class="card-section justify-content-center row">
 				<script>
-					var element = document.getElementById('cards');
+					var element = document.getElementById('projects');
 					new CodeCard('AnonymizingText', 'fas fa-envelope-open-text', 'A project to attempt to remove author attribution.', 'https://github.com/virustotalop/AnonymizingText').render(element);
 					new CodeCard('ClassyJava', 'fas fa-book', 'A wip Java programming textbook.', 'https://github.com/virustotalop/classyjava').render(element);
 					new CodeCard('Codecard', 'fas fa-code', 'The code cards you see on this website.', 'https://github.com/ravenlab/codecard').render(element);
