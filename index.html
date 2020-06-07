@@ -128,7 +128,7 @@
 					new Modal("discord-modal", "Add me on discord", "Discord id virustotal#5772").create(element);
 					
 					//License modal
-					$.get("https://raw.githubusercontent.com/virustotalop/virustotalop.github.io/master/LICENSE", function(data) {
+					$.get("LICENSE.md", function(data) {
 						data = replaceAll("\n", "</br>", data);
 						new Modal("license-modal", "License", data).create(element);
 					}, 'text');
