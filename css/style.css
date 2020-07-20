@@ -9,12 +9,8 @@
 
 .top-text {
   padding-top: 1rem;
-}
-
-@media(min-width: 480px) {
-	.top-text {
-      padding-left: 1rem;
-    }
+  font-size: 3rem;
+  padding-left: 1rem;
 }
 
 .big-icon {
@@ -76,4 +72,11 @@
 .footer-link {
   color: #007bff;
   text-decoration: underline;
+}
+
+@media(max-width: 480px) {
+	.top-text {
+      padding-left: 0rem;
+	  font-size: 2.5rem;
+    }
 }
