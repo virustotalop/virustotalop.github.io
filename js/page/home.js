@@ -12,10 +12,7 @@ new CodeCard('Hydra', 'fas fa-clone', 'An application server for event-driven pr
 new CodeCard('Poseidon', 'fas fa-plug', 'A plugin platform that is to be implemented in Hydra.', 'https://github.com/ClubObsidian/poseidon').render(element);
 new CodeCard('Random.js', 'fas fa-random', 'A port of Java\'s Random class to Javascript.', 'https://github.com/virustotalop/random.js').render(element);
 new CodeCard('Trident', 'fas fa-bolt', 'A fast eventbus that uses bytecode generation.', 'https://github.com/ClubObsidian/trident').render(element);
-new CodeCard('Wrappy', 'fas fa-file', 'A configuration library for yaml, xml, json and hocon.', 'https://github.com/ClubObsidian/wrappy').render(element);
+new CodeCard('Wrappy', 'fas fa-file', 'A configuration library for yaml, xml, json and hocon.', 'https://github.com/ClubObsidian/wrappy').render(element);	
 
-//Show home page, hide blog
-$("#home-button").click(function() {
-	$("#home-page").show();
-	$("#blog-page").hide();
-});
+//Register home page
+pageRegistrar.register(new Page("home"));

@@ -1,9 +1,3 @@
-//Handle page switching
-$("#blog-button").click(function() {
-	$("#home-page").hide();
-	$("#blog-page").show();
-});
-
 //Parse blog
 $.getJSON("blog/json/blog.json", function(data) {
 	console.log(data);
@@ -35,3 +29,6 @@ $.getJSON("blog/json/blog.json", function(data) {
 		});
 	});
 });
+
+//Register blog page
+pageRegistrar.register(new Page("blog"));

@@ -14,6 +14,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src = "js/page.js"></script>
+		<script> var pageRegistrar = new PageRegistrar(); </script>
 		<script>
 			function replaceAll(search, replaceWith, data) {
 				while(data.includes(search)) {
@@ -43,6 +45,7 @@
 				<button class="btn btn-default" data-toggle="modal" data-target="#discord-modal"><i class="fab fa-discord big-icon discord-icon" style="color:#7289d9"></i></button>
 			</div>
 			
+			<!-- Home Page -->
 			<div id="home-page">
 				<!-- About -->
 				<div class="justify-content-center row">
@@ -64,11 +67,14 @@
 				<!-- Cards -->
 				<div id= "projects" class="card-section justify-content-center row">
 					<script src="js/page/home.js" async></script>
+					<script async> pageRegistrar.setCurrentPage("home"); </script>
 					<noscript>
 						Unfortunately you need Javascript enabled to see my projects, please enable Javascript if you want to see them!
 					</noscript>
 				</div>
 			</div>
+			
+			<!-- Blog Page -->
 			<div id="blog-page" style="display:none">
 				<!-- Projects header -->
 				<div class="justify-content-center row">
