@@ -12,17 +12,16 @@ class PageRegistrar {
 	}
 	
 	setCurrentPage(name) {
-		console.log(this.pages);
-		console.log("name: " + name);
-		for(var p in this.pages) {
+		if(this.currentPage != null && this.currentPage.name == name) {
+			return;
+		}
+		
+		for(var i = 0; i < this.pages.length; i++) {
+			var p = this.pages[i];
 			if(p.name == name) {
-				console.log("name: " + name);
 				if(this.currentPage != null) {
-					console.log("before hide");
 					this.hidePage(this.currentPage.name);
-					console.log("Should be hidden");
 				}
-				console.log("Current page: " + this.currentPage);
 				this.currentPage = p;
 				this.showPage(name);
 				break;
