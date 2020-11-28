@@ -38,7 +38,9 @@ class PageRegistrar {
 		$(poundName + "-button").click(() => {
 			outsideThis.setCurrentPage(name);
 		});
-		$(poundName + "-page")
+		var divName = name + "-page";
+		$("#pages").append('<div id="' + divName + '"></div>');
+		$("#" + divName)
 		.load("page/html/" + name + ".html", page.renderer);
 	}
 	
