@@ -39,7 +39,7 @@ class PageRegistrar {
 			outsideThis.setCurrentPage(name);
 		});
 		var divName = name + "-page";
-		$("#pages").append('<div id="' + divName + '"></div>');
+		$("#pages").append('<div id="' + divName + '" style="display: none;"></div>');
 		$("#" + divName)
 		.load("page/html/" + name + ".html", page.renderer);
 	}
