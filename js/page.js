@@ -39,7 +39,7 @@ class PageRegistrar {
 			outsideThis.setCurrentPage(name);
 		});
 		$(poundName + "-page")
-		.load("page/content/" + name + ".html", page.renderer);
+		.load("page/html/" + name + ".html", page.renderer);
 	}
 	
 	showPage(name) {
