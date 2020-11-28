@@ -1,6 +1,7 @@
 class Page {
-	constructor(name) {
+	constructor(name, renderer) {
 		this.name = name;
+		this.renderer = renderer;
 	}
 }
 
@@ -33,9 +34,12 @@ class PageRegistrar {
 		this.pages.push(page);
 		var name = page.name;
 		var outsideThis = this;
-		$("#" + name + "-button").click(() => {
+		var poundName = "#" + name;
+		$(poundName + "-button").click(() => {
 			outsideThis.setCurrentPage(name);
 		});
+		$(poundName + "-page")
+		.load("page/content/" + name + ".html", page.renderer);
 	}
 	
 	showPage(name) {

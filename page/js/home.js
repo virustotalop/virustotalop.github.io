@@ -1,5 +1,6 @@
 //Load page
-$("#home-page").load("page/content/home.html", () => {
+pageRegistrar.register(new Page("home", () => {
+
 	//Get projects element
 	var element = document.getElementById('projects');
 
@@ -17,8 +18,7 @@ $("#home-page").load("page/content/home.html", () => {
 	new CodeCard('Wrappy', 'fas fa-file', 'A configuration library for yaml, xml, json and hocon.', 'https://github.com/ClubObsidian/wrappy').render(element);	
 
 	//Register home page
-	pageRegistrar.register(new Page("home"));
 
 	//Set current page to home page
 	pageRegistrar.setCurrentPage("home"); 
-});
+}));
