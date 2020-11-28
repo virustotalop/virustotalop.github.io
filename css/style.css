@@ -64,6 +64,11 @@
   margin: 0.5rem;
 }
 
+.blog-card {
+  width: 10rem;
+  margin: 0.5
+}
+
 .footer {
   margin-left: 1rem;
   margin-right: 1rem;

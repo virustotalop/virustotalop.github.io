@@ -3,10 +3,10 @@ $.getJSON("blog/json/blog.json", function(data) {
 	console.log(data);
 	const relative = "blog/page/";
 	const replaceMap = {
-		'<h1': '<div class="justify-content-center row"><h1 class="section-header"',
+		'<h1': '<div class="card-section justify-content-center blog-card card"><div class="justify-content-center row"><h1 class="section-header"',
 		'</h1>': '</h1></div>',
 		'<p': '<div class="justify-content-center row"><p',
-		'</p>': '</div>'
+		'</p>': '</div></div>'
 	};
 
 	const bindings = Object.keys(replaceMap)
