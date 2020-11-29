@@ -5,10 +5,10 @@ pageRegistrar.register(new Page("blog", () => {
 		console.log(data);
 		const relative = "blog/page/";
 		const replaceMap = {
-			'<h1': '<div class="card-section justify-content-center blog-card card"><div class="justify-content-center row"><h1 class="section-header"',
+			'<h1': '<div class="justify-content-center row"><h1 class="section-header"',
 			'</h1>': '</h1></div>',
 			'<p': '<div class="justify-content-center row"><p',
-			'</p>': '</div></div>'
+			'</p>': '</div>'
 		};
 
 		const bindings = Object.keys(replaceMap)
@@ -25,7 +25,7 @@ pageRegistrar.register(new Page("blog", () => {
 			var name = value.name;
 			var blogPost = relative + name;
 			$.get(blogPost, function(data) {
-				var html = '<div id="' + name + '"' + '>' + converter.makeHtml(data) + '</div>';
+				var html = '<div class="justify-content-center row blog-card card" id="' + name + '"' + '>' + converter.makeHtml(data) + '</div>';
 				$('#blog-page').append(html)
 				console.log(html);
 			});
