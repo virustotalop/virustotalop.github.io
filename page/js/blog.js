@@ -7,7 +7,7 @@ pageRegistrar.register(new Page("blog", () => {
 		const replaceMap = {
 			'<h1': '<div class="justify-content-center row"><h1 class="section-header"',
 			'</h1>': '</h1></div>',
-			'<p': '<div class="justify-content-center row"><p',
+			'<p': '<div class="justify-content-center card-body row"><p',
 			'</p>': '</div>'
 		};
 
@@ -25,9 +25,10 @@ pageRegistrar.register(new Page("blog", () => {
 			var name = value.name;
 			var blogPost = relative + name;
 			$.get(blogPost, function(data) {
-				var html = '<div class="justify-content-center row blog-card card" id="' + name + '"' + '>' + converter.makeHtml(data) + '</div>';
-				$('#blog-page').append(html)
-				console.log(html);
+				var convertedHTML = converter.makeHtml(data);
+				var html = '<div class="justify-content-center row blog-card card" id="' + name + '"' + '>' + convertedHTML + '</div>';
+				$('#blog-page').append(html);
+				console.log(data);
 			});
 		});
 	});
