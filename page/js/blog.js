@@ -10,6 +10,7 @@ pageRegistrar.register(new Page("blog", () => {
 			'<p': '<div class="justify-content-center card-body row"><p',
 			'</p>': '</div>'
 		};
+		//https://getbootstrap.com/docs/4.0/components/card/#header-and-footer
 
 		const bindings = Object.keys(replaceMap)
 		.map(key => ({
@@ -26,7 +27,10 @@ pageRegistrar.register(new Page("blog", () => {
 			var blogPost = relative + name;
 			$.get(blogPost, function(data) {
 				var convertedHTML = converter.makeHtml(data);
-				var html = '<div class="justify-content-center row blog-card card" id="' + name + '"' + '>' + convertedHTML + '</div>';
+				var html = '<div class="justify-content-center row blog-card card" id="' + name + '"' + '>';
+				html+= convertedHTML;
+				html+=  '<a href="#" class="btn btn-primary">Go to post</a>'
+				html += '</div>';
 				$('#blog-page').append(html);
 				console.log(data);
 			});
