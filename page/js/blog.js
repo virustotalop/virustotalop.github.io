@@ -23,12 +23,18 @@ pageRegistrar.register(new Page("blog", () => {
 		converter.setFlavor('github');
 
 		$.each(data, function(key, value) {
-			var name = value.name;
-			var blogPost = relative + name;
+			console.log('key: ' + key);
+			var postName = value.name;
+			var postTime = new Date(parseInt(value.time));
+			var localTime = postTime.toLocaleString();
+			console.log('name: ' + postName);
+			console.log("locale time: " + localTime);
+			var blogPost = relative + postName;
 			$.get(blogPost, function(data) {
 				var convertedHTML = converter.makeHtml(data);
-				var html = '<div class="justify-content-center row blog-card card" id="' + name + '"' + '>';
+				var html = '<div class="justify-content-center row blog-card card" id="' + postName + '"' + '>';
 				html+= convertedHTML;
+				html+= '<p>' + localTime + '</p>';
 				html+=  '<a href="#" class="btn btn-primary">Go to post</a>'
 				html += '</div>';
 				$('#blog-page').append(html);
