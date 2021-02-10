@@ -52,6 +52,14 @@
 				</noscript>
 				<script src="page/js/home.js"></script>
 				<script src="page/js/blog.js"></script>
+				<script>
+					var storage = window.sessionStorage;
+					var currentPage = storage.getItem("currentPage");
+					if(currentPage == null) {
+						currentPage = "home";
+					}					
+					pageRegistrar.setCurrentPage(currentPage);
+				</script>
 			</div>
 			
 			<!-- Footer -->

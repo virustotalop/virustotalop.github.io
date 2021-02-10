@@ -16,9 +16,4 @@ pageRegistrar.register(new Page("home", () => {
 	new CodeCard('Random.js', 'fas fa-random', 'A port of Java\'s Random class to Javascript.', 'https://github.com/virustotalop/random.js').render(element);
 	new CodeCard('Trident', 'fas fa-bolt', 'A fast eventbus that uses bytecode generation.', 'https://github.com/ClubObsidian/trident').render(element);
 	new CodeCard('Wrappy', 'fas fa-file', 'A configuration library for yaml, xml, json and hocon.', 'https://github.com/ClubObsidian/wrappy').render(element);	
-
-	//Register home page
-
-	//Set current page to home page
-	pageRegistrar.setCurrentPage("home"); 
 }));

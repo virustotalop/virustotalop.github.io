@@ -25,6 +25,9 @@ class PageRegistrar {
 				}
 				this.currentPage = p;
 				this.showPage(name);
+				var storage = window.sessionStorage;
+				storage.setItem("currentPage", name);
+				console.log("current page: " + storage.getItem("currentPage"));
 				break;
 			}
 		}
