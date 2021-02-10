@@ -39,42 +39,39 @@
 			<!-- Icon bar -->
 			<div class="justify-content-center row icon-top-bar">
 				<button id="home-button" class="btn" href="#home"><i class="fas fa-home big-icon" style="color:black"></i></button>
-				<!--<button id="blog-button" class="btn" href="#blog"><i class="fas fa-blog big-icon" style="color:black"></i></button>-->
+				<button id="blog-button" class="btn" href="#blog"><i class="fas fa-blog big-icon" style="color:black"></i></button>
 				<a class="btn" href="mailto:virustotalop@gmail.com"><i class="fas fa-envelope big-icon" style="color:black"></i></a>
 				<a class="btn" href="https://github.com/virustotalop" target="_blank"><i class="fab fa-github big-icon"></i></a>
 				<button class="btn btn-default" data-toggle="modal" data-target="#discord-modal"><i class="fab fa-discord big-icon discord-icon" style="color:black"></i></button>
 			</div>
 			
-			<!-- Need to handle noscript, will probably just handle it for the whole website at some point -->
-			<!--
-			<noscript>
-					Unfortunately you need Javascript enabled to see my projects, please enable Javascript if you want to see them!
+			<!-- Pages -->
+			<div id="pages">
+				<noscript>
+					Unfortunately you need Javascript enabled to use my website, please enable Javascript to view the website!
 				</noscript>
-			-->
-			
-			<!-- Home Page -->
-			<div id="home-page">
 				<script src="page/js/home.js"></script>
-			</div>
-			
-			
-			<!-- Blog Page -->
-			<!--
-			<div id="blog-page" style="display:none">
 				<script src="page/js/blog.js"></script>
+				<script>
+					var storage = window.sessionStorage;
+					var currentPage = storage.getItem("currentPage");
+					if(currentPage == null) {
+						currentPage = "home";
+					}					
+					pageRegistrar.setCurrentPage(currentPage);
+				</script>
 			</div>
-			-->
-			
 			
 			<!-- Footer -->
 			<div class="footer">
-			<div class="justify-content-center row">
-				<p class="footer">
-					Created with  <i class="fas fa-heart" style="color:red"></i> with <a href="https://getbootstrap.com/" target="_blank" class="footer-link">Bootstrap</a>, 
-					<a href="https://fontawesome.com" target="_blank" class="footer-link">Fontawesome</a>, 
-					<a href="https://jquery.com/" target="_blank" class="footer-link">jQuery</a> and 
-					<a href="https://github.com/showdownjs/showdown" target="_blank" class="footer-link">showdown.</a>
-				</p>
+				<div class="justify-content-center row">
+					<p class="footer">
+						Created with  <i class="fas fa-heart" style="color:red"></i> with <a href="https://getbootstrap.com/" target="_blank" class="footer-link">Bootstrap</a>, 
+						<a href="https://fontawesome.com" target="_blank" class="footer-link">Fontawesome</a>, 
+						<a href="https://jquery.com/" target="_blank" class="footer-link">jQuery</a> and 
+						<a href="https://github.com/showdownjs/showdown" target="_blank" class="footer-link">showdown.</a>
+					</p>
+				</div>
 			</div>
 			<div class="justify-content-center row">
 				<p class="footer">

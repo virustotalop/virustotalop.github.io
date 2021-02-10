@@ -25,6 +25,9 @@ class PageRegistrar {
 				}
 				this.currentPage = p;
 				this.showPage(name);
+				var storage = window.sessionStorage;
+				storage.setItem("currentPage", name);
+				console.log("current page: " + storage.getItem("currentPage"));
 				break;
 			}
 		}
@@ -38,8 +41,10 @@ class PageRegistrar {
 		$(poundName + "-button").click(() => {
 			outsideThis.setCurrentPage(name);
 		});
-		$(poundName + "-page")
-		.load("page/content/" + name + ".html", page.renderer);
+		var divName = name + "-page";
+		$("#pages").append('<div id="' + divName + '" style="display: none;"></div>');
+		$("#" + divName)
+		.load("page/html/" + name + ".html", page.renderer);
 	}
 	
 	showPage(name) {

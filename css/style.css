@@ -66,8 +66,8 @@
 }
 
 .blog-card {
-  width: 10rem;
-  margin: 0.5
+  width: 40rem;
+  margin: 0 auto !important;
 }
 
 .footer {
