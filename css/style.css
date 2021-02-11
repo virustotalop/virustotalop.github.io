@@ -13,22 +13,19 @@
   padding-left: 1rem;
 }
 
-.big-icon {
-  font-size: 2rem;
+.top-button {
+  font-size: 1.2rem !important;
   color: black;
   padding: 5px;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
 }
 
-.discord-icon {
-  font-size: 1.85rem;
-}
 
-.big-icon:hover {
+/*.big-icon:hover {
   margin-bottom: 0;
   font-size: 2.5rem;
-}
+}*/
 
 
 .about {
