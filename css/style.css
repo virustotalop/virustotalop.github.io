@@ -13,10 +13,9 @@
   padding-left: 1rem;
 }
 
-.top-button {
-  font-size: 1.2rem !important;
+.btn.top-button {
+  font-size: 1.2rem;
   color: black;
-  padding: 5px;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
 }
