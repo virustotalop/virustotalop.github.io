@@ -18,7 +18,7 @@
   color: black;
   padding: 5px;
   margin-top: 0.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 
@@ -31,14 +31,9 @@
 .about {
   word-wrap: normal;
   font-size: 1.1rem;
-  width: 80%;
 }
 
-@media(min-width: 1000px) {
-  .about {
-   width: 50%; 
-  }
-}
+
 .section-header {
   font-size: 2rem;
 }
@@ -77,9 +72,19 @@
   text-decoration: underline;
 }
 
-@media(max-width: 480px) {
+@media(min-width: 1000px) {
+  .about {
+   width: 80%; 
+  }
+}
+
+@media(max-width: 520px) {
 	.top-text {
       padding-left: 0rem;
 	  font-size: 2.5rem;
+    }
+	.about {
+      padding-left: 0.5rem;
+	  padding-right: 0.5rem;
     }
 }
