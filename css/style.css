@@ -30,6 +30,9 @@
 .about {
   word-wrap: normal;
   font-size: 1.1rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
 
