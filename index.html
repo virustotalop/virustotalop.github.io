@@ -51,9 +51,12 @@
 				<script src="page/js/home.js"></script>
 				<script src="page/js/blog.js"></script>
 				<script>
-					var storage = window.sessionStorage;
-					var currentPage = storage.getItem("currentPage");
-					if(currentPage == null) {
+					var loc = "" + window.location;
+					var pageIndex = loc.indexOf('#page=');
+					var currentPage = null;
+					if(pageIndex != -1) {
+						currentPage = loc.substring(pageIndex + 6);
+					} else {
 						currentPage = "home";
 					}					
 					pageRegistrar.setCurrentPage(currentPage);
