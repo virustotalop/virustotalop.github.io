@@ -20,12 +20,10 @@
   margin-bottom: 0.5rem;
 }
 
-
 /*.big-icon:hover {
   margin-bottom: 0;
   font-size: 2.5rem;
 }*/
-
 
 .about {
   word-wrap: normal;
@@ -35,7 +33,6 @@
   margin-bottom: 3rem;
 }
 
-
 .section-header {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -44,7 +41,6 @@
 .btn {
   box-shadow: none !important;
 }
-
 
 .card-section {
   display: inline-block;
@@ -82,11 +78,11 @@
 
 @media(max-width: 520px) {
 	.top-text {
-      padding-left: 0rem;
+    padding-left: 0rem;
 	  font-size: 2.5rem;
-    }
+  }
 	.about {
-      padding-left: 0.5rem;
+    padding-left: 0.5rem;
 	  padding-right: 0.5rem;
-    }
+  }
 }

@@ -7,7 +7,7 @@ pageRegistrar.register(new Page("blog", () => {
 		const replaceMap = {
 			'<h1': '<div class="justify-content-center row"><h1 class="section-header"',
 			'</h1>': '</h1></div>',
-			'<p': '<div class="justify-content-center card-body row"><p',
+			'<p>': '<div class="card-body row">',
 			'</p>': '</div>'
 		};
 		//https://getbootstrap.com/docs/4.0/components/card/#header-and-footer
