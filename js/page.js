@@ -1,3 +1,4 @@
+
 class Page {
 	constructor(name, renderer) {
 		this.name = name;
@@ -24,11 +25,7 @@ class PageRegistrar {
 					this.hidePage(this.currentPage.name);
 				}
 				this.currentPage = p;
-				this.showPage(name);
-				var href = "" + window.location.href;
-				href = href.substring(0, href.indexOf("#"));
-				var loc = href + "#page=" + name;
-				window.location = loc;
+				this.updatePage(name);
 				break;
 			}
 		}
@@ -48,6 +45,23 @@ class PageRegistrar {
 		.load("page/html/" + name + ".html", page.renderer);
 	}
 	
+	updatePage(name) {
+		this.updateTitle(name);
+		this.showPage(name);
+		this.updateURL(name);
+	}
+
+	updateTitle(name) {
+		document.title = "Page - " + name;
+	}
+
+	updateURL(name) {
+		var href = "" + window.location.href;
+		href = href.substring(0, href.indexOf("#"));
+		var loc = href + "#page=" + name;
+		window.location = loc;
+	}
+
 	showPage(name) {
 		$("#" + name + "-page").show();
 	}
