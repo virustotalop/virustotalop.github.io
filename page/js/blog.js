@@ -32,10 +32,10 @@ pageRegistrar.register(new Page("blog", () => {
 			var blogPost = relative + postName;
 			$.get(blogPost, function(data) {
 				var convertedHTML = converter.makeHtml(data);
-				var html = '<div class="justify-content-center row blog-card card" id="' + postName + '"' + '>';
-				html+= convertedHTML;
-				html+= '<p>' + localTime + '</p>';
-				html+=  '<a href="#" class="btn btn-primary">Go to post</a>'
+				var html = '<div class="justify-content-center row card blog-card" id="' + postName + '"' + '>';
+				html += convertedHTML;
+				html += '<p>Posted ' + localTime + '</p>';
+				html +=  '<a href="#" class="btn btn-primary btn-blog-post">Go to post</a>'
 				html += '</div>';
 				$('#blog-page').append(html);
 				console.log(data);
