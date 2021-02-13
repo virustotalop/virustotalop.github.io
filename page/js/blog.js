@@ -34,6 +34,11 @@ pageRegistrar.register(new Page("blog", () => {
 							$(element).filter('h' + i).addClass('blog-h' + i);
 						}
 						$(element).filter(':header').addClass('justify-content-center row')
+						$(element).filter('pre').each((index, codeBlock) => {
+							hljs.highlightBlock(codeBlock);
+							console.log('code block');
+						});
+
 						if(index > 1) {
 							$(element).hide();
 						}
@@ -55,6 +60,8 @@ pageRegistrar.register(new Page("blog", () => {
 			});
 		});
 	});
+	//Highlight all code blocks
+	hljs.highlightAll();
 }));
 
 function isPunctuation(ch) {
