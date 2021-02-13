@@ -63,10 +63,10 @@ function isPunctuation(ch) {
 
 function truncateText(text) {
 	var length = 100;
-	if(length >= text.length) {
-		length = text.length;
+	if(length > text.length) {
+		return text;
 	}
-	for(var i = 400; i < text.length; i++) {
+	for(var i = length; i < text.length; i++) {
 		if(isPunctuation(text[i])) {
 			length = i + 1;
 			break;
