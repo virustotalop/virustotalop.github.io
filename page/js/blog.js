@@ -36,14 +36,14 @@ pageRegistrar.register(new Page("blog", () => {
 						}
 					});
 					var firstPara = contentSection.find('p').first();
-					var firstPrataText = firstPara.text();
-					var truncated = truncateText(firstPrataText);
+					var firstParaText = firstPara.text();
+					var truncated = truncateText(firstParaText);
 					firstPara.text(truncated);
 
 					$('#' + buttonId).click(() => {
 						$("#" + contentId).children().each((i, element) => {
 							$(element).show();
-							firstPara.text(firstPrataText);
+							firstPara.text(firstParaText);
 						});
 						$('#' + buttonId).hide();
 					});

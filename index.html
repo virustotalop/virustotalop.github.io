@@ -55,13 +55,10 @@
 				</noscript>
 				<script src="page/js/home.js"></script>
 				<script src="page/js/blog.js"></script>
+				<!--Handle initial page load-->
 				<script>
-					var loc = "" + window.location;
-					var pageIndex = loc.indexOf('#page=');
-					var currentPage = null;
-					if(pageIndex != -1) {
-						currentPage = loc.substring(pageIndex + 6);
-					} else {
+					let currentPage = getPageFromURL();
+					if(currentPage == null) {
 						currentPage = "home";
 					}					
 					pageRegistrar.setCurrentPage(currentPage);

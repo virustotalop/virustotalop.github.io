@@ -1,3 +1,12 @@
+function getPageFromURL() {
+	var loc = "" + window.location;
+	var pageIndex = loc.indexOf('#page=');
+	if(pageIndex == -1) {
+		return null;
+	}
+	return loc.substring(pageIndex + 6);
+}
+
 
 class Page {
 	constructor(name, renderer) {
@@ -11,8 +20,13 @@ class PageRegistrar {
 	constructor() {
 		this.pages = [];
 		this.currentPage = null;
+		this.registerNavigationHandler();
 	}
 	
+	getCurrentPage() {
+		return this.currentPage;
+	}
+
 	setCurrentPage(name) {
 		if(this.currentPage != null && this.currentPage.name == name) {
 			return;
@@ -24,6 +38,7 @@ class PageRegistrar {
 				if(this.currentPage != null) {
 					this.hidePage(this.currentPage.name);
 				}
+				console.log("set current page");
 				this.currentPage = p;
 				this.updatePage(name);
 				break;
@@ -36,7 +51,7 @@ class PageRegistrar {
 		var name = page.name;
 		var outsideThis = this;
 		var poundName = "#" + name;
-		$(poundName + "-button").click(() => {
+		$(poundName + "-button").click(() => { //Register current page handler
 			outsideThis.setCurrentPage(name);
 		});
 		var divName = name + "-page";
@@ -46,9 +61,9 @@ class PageRegistrar {
 	}
 	
 	updatePage(name) {
+		this.updateURL(name);
 		this.updateTitle(name);
 		this.showPage(name);
-		this.updateURL(name);
 	}
 
 	updateTitle(name) {
@@ -69,4 +84,13 @@ class PageRegistrar {
 	hidePage(name) {
 		$("#" + name + "-page").hide();
 	}	
+
+	registerNavigationHandler() { //Handle forward and back buttons
+		$(window).on('popstate', (event) => {
+			let pageName = getPageFromURL();
+			if(pageName != null) { //navigating to the same page is handled in the setCurrentPage method
+				this.setCurrentPage(pageName);
+			}
+		});
+	}
 }
