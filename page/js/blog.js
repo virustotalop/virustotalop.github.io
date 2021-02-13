@@ -30,7 +30,8 @@ pageRegistrar.register(new Page("blog", () => {
 				$('#blog-page').append(html).ready(() => {
 					var contentSection = $('#' + contentId);
 					contentSection.children().each((i, element) => {
-						$(element).filter('h1').addClass('blog-header justify-content-center row');
+						$(element).filter('h1').addClass('blog-header');
+						$(element).filter(':header').addClass('justify-content-center row')
 						if(i > 1) {
 							$(element).hide();
 						}

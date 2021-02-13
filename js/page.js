@@ -29,7 +29,7 @@ class PageRegistrar {
 
 	setCurrentPage(name) {
 		if(this.currentPage != null && this.currentPage.name == name) {
-			return;
+			return false;
 		}
 		
 		for(var i = 0; i < this.pages.length; i++) {
@@ -41,9 +41,10 @@ class PageRegistrar {
 				console.log("set current page");
 				this.currentPage = p;
 				this.updatePage(name);
-				break;
+				return true;
 			}
 		}
+		return false;
 	}
 	
 	register(page) {
