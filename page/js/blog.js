@@ -29,10 +29,12 @@ pageRegistrar.register(new Page("blog", () => {
 
 				$('#blog-page').append(html).ready(() => {
 					var contentSection = $('#' + contentId);
-					contentSection.children().each((i, element) => {
-						$(element).filter('h1').addClass('blog-header');
+					contentSection.children().each((index, element) => {
+						for(var i = 1; i < 4; i++) {
+							$(element).filter('h' + i).addClass('blog-h' + i);
+						}
 						$(element).filter(':header').addClass('justify-content-center row')
-						if(i > 1) {
+						if(index > 1) {
 							$(element).hide();
 						}
 					});
