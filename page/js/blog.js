@@ -1,27 +1,21 @@
-const relative = "blog/page/";
-
 //Load page
 pageRegistrar.register(new Page("blog", () => {
+	const relative = "blog/page/";
+	const converter = new showdown.Converter();
+	converter.setFlavor('github');
 	//Parse blog
 	$.getJSON("blog/json/blog.json", (data) => {
 		console.log(data);
-
-		$.each(data, (key, value) => {
-			
-
+		$.each(data, (key, value) => {	
 			console.log('key: ' + key);
 			var postFileName = value.name;
 			var postName = postFileName.replace(".md", "");
 			var postTime = new Date(parseInt(value.time));
 			var localTime = postTime.toLocaleString();
-			var bodyId = postName + '-body';
 			var buttonId = postName + '-button';
 			var contentId = postName + '-content';
-	
-			var converter = new showdown.Converter();
-			converter.setFlavor('github');
-
 			var blogPost = relative + postFileName;
+
 			$.get(blogPost, (markdown) => {
 				var convertedHTML = converter.makeHtml(markdown);
 				console.log(convertedHTML);
@@ -36,7 +30,7 @@ pageRegistrar.register(new Page("blog", () => {
 				$('#blog-page').append(html).ready(() => {
 					var contentSection = $('#' + contentId);
 					contentSection.children().each((i, element) => {
-						$(element).filter('h1').addClass('section-header justify-content-center row');
+						$(element).filter('h1').addClass('blog-header justify-content-center row');
 						if(i > 1) {
 							$(element).hide();
 						}

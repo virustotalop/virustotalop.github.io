@@ -38,6 +38,11 @@
   margin-bottom: 1rem;
 }
 
+.blog-header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 .btn {
   box-shadow: none !important;
 }
@@ -72,7 +77,7 @@
 
 @media(min-width: 1000px) {
   .about {
-   width: 80%; 
+    width: 80%; 
   }
 }
 
@@ -84,5 +89,8 @@
 	.about {
     padding-left: 0.5rem;
 	  padding-right: 0.5rem;
+  }
+  .card.blog-card {
+    width: 25rem;
   }
 }
