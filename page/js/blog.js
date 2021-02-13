@@ -18,9 +18,9 @@ pageRegistrar.register(new Page("blog", () => {
 
 			$.get(blogPost, (markdown) => {
 				var convertedHTML = converter.makeHtml(markdown);
-				console.log(convertedHTML);
+				console.log('converted html: ' + convertedHTML);
 				var html = '<div class="justify-content-center row card blog-card" id="' + postName + '"' + '>';
-				html += '<div id ="' + contentId + '">';  
+				html += '<div id ="' + contentId + '" class="justify-content-center">';  
 				html += convertedHTML;
 				html += '</div>'
 				html += '<p>Posted ' + localTime + '</p>';
@@ -39,15 +39,15 @@ pageRegistrar.register(new Page("blog", () => {
 						}
 					});
 
-					var firstPara = contentSection.find('p').first();
-					var firstParaText = firstPara.text();
+					/*var firstPara = contentSection.find('p').first();
+					var firstParaText = firstPara.contents();
 					var truncated = truncateText(firstParaText);
-					firstPara.text(truncated);
+					firstPara.contents(truncated);*/
 
 					$('#' + buttonId).click(() => {
 						$("#" + contentId).children().each((i, element) => {
 							$(element).show();
-							firstPara.text(firstParaText);
+							//firstPara.contents(firstParaText);
 						});
 						$('#' + buttonId).hide();
 					});
@@ -62,7 +62,7 @@ function isPunctuation(ch) {
 }
 
 function truncateText(text) {
-	var length = 100;
+	var length = 400;
 	if(length > text.length) {
 		return text;
 	}
