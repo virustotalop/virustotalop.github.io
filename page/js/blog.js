@@ -38,6 +38,7 @@ pageRegistrar.register(new Page("blog", () => {
 							$(element).hide();
 						}
 					});
+
 					var firstPara = contentSection.find('p').first();
 					var firstParaText = firstPara.text();
 					var truncated = truncateText(firstParaText);
@@ -51,7 +52,6 @@ pageRegistrar.register(new Page("blog", () => {
 						$('#' + buttonId).hide();
 					});
 				});
-				//https://getbootstrap.com/docs/4.0/components/card/#header-and-footer
 			});
 		});
 	});
