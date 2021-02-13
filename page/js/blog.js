@@ -51,6 +51,7 @@ pageRegistrar.register(new Page("blog", () => {
 							$(element).show();
 							firstPara.text(firstPrataText);
 						});
+						$('#' + buttonId).hide();
 					});
 				});
 				//https://getbootstrap.com/docs/4.0/components/card/#header-and-footer
