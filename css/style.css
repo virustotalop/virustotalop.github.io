@@ -75,6 +75,10 @@
   text-decoration: underline;
 }
 
+#konami {
+  visibility: hidden;
+}
+
 @media(min-width: 1000px) {
   .about {
     width: 80%; 
