@@ -1,6 +1,6 @@
 # Hello World
 
-:rocket: We have lift off! This is the first blog post on my newly redesigned website! I figured what better way to kick off the blog posts besides detailing how the website was built! This website was built primarily using [jquery](https://jquery.com/) for reactive programming and blog posts are generated using [showdown](https://github.com/showdownjs/showdown). 
+:rocket: We have lift off! This is the first blog post on my newly redesigned website! I figured what better way to kick off the blog posts besides detailing how the website was built! This website was built primarily using [jquery](https://jquery.com/) for dynamic loading and blog posts are generated using [showdown](https://github.com/showdownjs/showdown). 
 
 ## Design Philosophy
 
@@ -162,7 +162,7 @@ If you made it this far thank you for reading. Blogging is something I intend on
 
 ## Credits
 
-Thank you to the all the people who help in the design of this website.
+Thank you to the all the people who helped with the design of this website.
 
 @DanHues
 @FelixOBrien
