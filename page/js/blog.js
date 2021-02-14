@@ -19,12 +19,14 @@ pageRegistrar.register(new Page("blog", () => {
 			$.get(blogPost, (markdown) => {
 				var convertedHTML = converter.makeHtml(markdown);
 				console.log('converted html: ' + convertedHTML);
-				var html = '<div class="justify-content-center row card blog-card" id="' + postName + '"' + '>';
+				var html = '<div class="justify-content-center row card blog-card" id="';
+				html += postName + '"' + '>';
 				html += '<div id ="' + contentId + '" class="justify-content-center">';  
 				html += convertedHTML;
 				html += '</div>'
 				html += '<p>Posted ' + localTime + '</p>';
-				html +=  '<button id="' + buttonId + '" class="btn btn-primary btn-blog-post">Continue Reading</button>'
+				html += '<button id="' + buttonId;
+				html += '" class="btn btn-primary btn-blog-post">Continue Reading</button>';
 				html += '</div>';
 
 				$('#blog-page').append(html).ready(() => {
