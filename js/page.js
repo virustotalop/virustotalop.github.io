@@ -12,6 +12,7 @@ class Page {
 	constructor(name, renderer) {
 		this.name = name;
 		this.renderer = renderer;
+		this.loaded = false;
 	}
 }
 
@@ -33,13 +34,14 @@ class PageRegistrar {
 		}
 		
 		for(var i = 0; i < this.pages.length; i++) {
-			var p = this.pages[i];
-			if(p.name == name) {
+			var page = this.pages[i];
+			if(page.name == name) {
+				this.lazyLoadPage(page);
 				if(this.currentPage != null) {
 					this.hidePage(this.currentPage.name);
 				}
 				console.log("set current page");
-				this.currentPage = p;
+				this.currentPage = page;
 				this.updatePage(name);
 				return true;
 			}
@@ -55,10 +57,6 @@ class PageRegistrar {
 		$(poundName + "-button").click(() => { //Register current page handler
 			outsideThis.setCurrentPage(name);
 		});
-		var divName = name + "-page";
-		$("#pages").append('<div id="' + divName + '" style="display: none;"></div>');
-		$("#" + divName)
-		.load("page/html/" + name + ".html", page.renderer);
 	}
 	
 	updatePage(name) {
@@ -93,5 +91,15 @@ class PageRegistrar {
 				this.setCurrentPage(pageName);
 			}
 		});
+	}
+
+	lazyLoadPage(page) {
+		if(!page.loaded) {
+			var pageName = page.name;
+			var divName = pageName + "-page";
+			$("#pages").append('<div id="' + divName + '" style="display: none;"></div>');
+			$("#" + divName).load("page/html/" + pageName + ".html", page.renderer);
+			page.loaded = true;
+		}
 	}
 }
