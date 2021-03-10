@@ -33,7 +33,10 @@ pageRegistrar.register(new Page("blog", () => {
 				html += '</div>';
 				html += '</div>';
 
-				$('#blog-page').append(html).ready(() => {
+				var parsedHTML = $(html);
+				parsedHTML.hide();
+
+				$('#blog-page').append(parsedHTML).ready(() => {
 					var contentSection = $('#' + contentId);
 					contentSection.children().each((index, element) => {
 						for(var i = 1; i < 4; i++) {
@@ -62,6 +65,7 @@ pageRegistrar.register(new Page("blog", () => {
 						});
 						$('#' + buttonId).hide();
 					});
+					$("#" + postName).show();
 				});
 			});
 		});
