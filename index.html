@@ -70,18 +70,17 @@
 			<!-- Footer -->
 			<div class="footer">
 				<div class="justify-content-center row">
-					<p class="footer">
-						Created with  <i class="fas fa-heart" style="color:red"></i> with <a href="https://getbootstrap.com/" target="_blank" class="footer-link">Bootstrap</a>, 
-						<a href="https://fontawesome.com" target="_blank" class="footer-link">Fontawesome</a>, 
-						<a href="https://jquery.com/" target="_blank" class="footer-link">jQuery</a> and 
-						<a href="https://github.com/showdownjs/showdown" target="_blank" class="footer-link">showdown.</a>
+					<p>
+						Created with  <i class="fas fa-heart" style="color:red"></i> with 
+						Open Source Software.
+						<!--<a href="#" class="footer-link" data-toggle="modal" data-target="#oss-modal"></a>-->
 					</p>
 				</div>
-			</div>
-			<div class="justify-content-center row">
-				<p class="footer">
-					Licensed under the <a href="#" class="footer-link" data-toggle="modal" data-target="#license-modal">MIT License.</a>
-				</p>
+				<div class="justify-content-center row">
+					<p>
+						Licensed under the <a href="#" class="footer-link" data-toggle="modal" data-target="#license-modal">MIT License.</a>
+					</p>
+				</div>
 			</div>
 			
 			<!-- Modals -->
@@ -92,6 +91,9 @@
 					//Discord modal
 					new Modal("discord-modal", "Add me on discord", "Discord id virustotal#0001").create(element);
 					
+					//Software modal
+					//new Modal("oss-modal", "OSS Used", "Discord id virustotal#0001").create(element);
+
 					//License modal
 					$.get("LICENSE.md", function(data) {
 						data = replaceAll("\n", "</br>", data);
