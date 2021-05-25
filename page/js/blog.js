@@ -18,7 +18,7 @@ pageRegistrar.register(new Page("blog", () => {
 
 			$.get(blogPost, (markdown) => {
 				var convertedHTML = converter.makeHtml(markdown);
-				console.log('converted html: ' + convertedHTML);
+				//console.log('converted html: ' + convertedHTML);
 				var html = '<div class="justify-content-center card blog-card" id="';
 				html += postName + '"' + '>';
 				html += '<div class="card-body">';
