@@ -45,7 +45,7 @@
 			<div class="justify-content-center row icon-top-bar">
 				<button id="home-button" class="btn top-button" href="#home"><i class="fas fa-home" style="color:black"></i> Home</button>
 				<button id="blog-button" class="btn top-button" href="#blog"><i class="fas fa-blog" style="color:black"></i> Blog</button>
-				<a class="btn top-button" href="mailto:virustotalop@gmail.com"><i class="fas fa-envelope" style="color:black"></i> Email</a>
+				<a class="btn top-button" href="#" onclick="email()"><i class="fas fa-envelope" style="color:black"></i> Email</a>
 				<a class="btn top-button" href="https://github.com/virustotalop" target="_blank"><i class="fab fa-github"></i> Github</a>
 				<button class="btn top-button" data-toggle="modal" data-target="#discord-modal"><i class="fab fa-discord discord-icon" style="color:black"></i> Discord</button>
 			</div>
@@ -105,6 +105,21 @@
 			<audio controls id="konami">
 				<source src="audio/powerup.mp3" type="audio/mpeg">
 			</audio>
+			<a id="email-anchor" href="#"></a>
+			<script>
+				function email() {
+					const emailAnchor = document.getElementById('email-anchor');
+					if(emailAnchor.href.endsWith("#")) {
+						var email = "virus";
+						email += "total";
+						email += "op";
+						const hostName = "gmail.com"
+						emailAnchor.href = "mailto:" + email + "@" + hostName;
+					}
+					emailAnchor.click();
+				}
+			</script>
+			<!-- Easter Egg -->
 			<script>
 				//↑↑↓↓←→←→BA 
 				const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
