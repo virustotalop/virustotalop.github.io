@@ -1,18 +1,17 @@
-function getPageFromURL() {
-	var loc = "" + window.location;
-	var pageIndex = loc.indexOf('#page=');
-	if(pageIndex == -1) {
-		return null;
-	}
-	return loc.substring(pageIndex + 6);
-}
-
-
 class Page {
 	constructor(name, renderer) {
 		this.name = name;
 		this.renderer = renderer;
 		this.loaded = false;
+	}
+
+	static fromURL() {
+		var loc = "" + window.location;
+		var pageIndex = loc.indexOf('#page=');
+		if(pageIndex == -1) {
+			return null;
+		}
+		return loc.substring(pageIndex + 6);
 	}
 }
 
@@ -23,7 +22,7 @@ class PageRegistrar {
 		this.currentPage = null;
 		this.registerNavigationHandler();
 	}
-	
+
 	getCurrentPage() {
 		return this.currentPage;
 	}
@@ -86,7 +85,7 @@ class PageRegistrar {
 
 	registerNavigationHandler() { //Handle forward and back buttons
 		$(window).on('popstate', (event) => {
-			let pageName = getPageFromURL();
+			let pageName = Page.fromURL();
 			if(pageName != null) { //navigating to the same page is handled in the setCurrentPage method
 				this.setCurrentPage(pageName);
 			}
