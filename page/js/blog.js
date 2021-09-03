@@ -1,4 +1,26 @@
-//Load page
+// Utils for blog
+class BlogUtils {
+
+	static isPunctuation(ch) {
+		return ch == '.' || ch == '!' || ch == '?';
+	}
+	
+	static truncateText(text) {
+		var length = 400;
+		if(length > text.length) {
+			return text;
+		}
+		for(var i = length; i < text.length; i++) {
+			if(isPunctuation(text[i])) {
+				length = i + 1;
+				break;
+			}	
+		}
+		return text.substring(0, length);
+	}
+}
+
+// Load page
 pageRegistrar.register(new Page("blog", () => {
 	const relative = "blog/page/";
 	const converter = new showdown.Converter();
@@ -73,21 +95,3 @@ pageRegistrar.register(new Page("blog", () => {
 	//Highlight all code blocks
 	hljs.highlightAll();
 }));
-
-function isPunctuation(ch) {
-	return ch == '.' || ch == '!' || ch == '?';
-}
-
-function truncateText(text) {
-	var length = 400;
-	if(length > text.length) {
-		return text;
-	}
-	for(var i = length; i < text.length; i++) {
-		if(isPunctuation(text[i])) {
-			length = i + 1;
-			break;
-		}	
-	}
-	return text.substring(0, length);
-}
