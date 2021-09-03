@@ -1,14 +1,12 @@
 class Modal {
 		
-	constructor(id, title, body)
-	{
+	constructor(id, title, body) {
 		this.id = id;
 		this.title = title;
 		this.body = body;
 	}
 	
-	create(element)
-	{
+	create(element) {
 		var html = '<div id="' + this.id + '" class="modal" tabindex="-1" role="dialog">' +
 		'<div class="modal-dialog" role="document">' +
 		'<div class="modal-content">' +
