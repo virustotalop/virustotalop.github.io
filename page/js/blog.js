@@ -6,11 +6,11 @@ class BlogUtils {
 	}
 	
 	static truncateText(text) {
-		var length = 400;
+		let length = 400;
 		if(length > text.length) {
 			return text;
 		}
-		for(var i = length; i < text.length; i++) {
+		for(let i = length; i < text.length; i++) {
 			if(isPunctuation(text[i])) {
 				length = i + 1;
 				break;
@@ -30,18 +30,18 @@ pageRegistrar.register(new Page("blog", () => {
 		console.log(data);
 		$.each(data, (key, value) => {	
 			console.log('key: ' + key);
-			var postFileName = value.name;
-			var postName = postFileName.replace(".md", "");
-			var postTime = new Date(parseInt(value.time));
-			var localTime = postTime.toLocaleString();
-			var buttonId = postName + '-button';
-			var contentId = postName + '-content';
-			var blogPost = relative + postFileName;
+			const postFileName = value.name;
+			const postName = postFileName.replace(".md", "");
+			const postTime = new Date(parseInt(value.time));
+			const localTime = postTime.toLocaleString();
+			const buttonId = postName + '-button';
+			const contentId = postName + '-content';
+			const blogPost = relative + postFileName;
 
 			$.get(blogPost, (markdown) => {
-				var convertedHTML = converter.makeHtml(markdown);
+				const convertedHTML = converter.makeHtml(markdown);
 				//console.log('converted html: ' + convertedHTML);
-				var html = '<div class="justify-content-center card blog-card" id="';
+				let html = '<div class="justify-content-center card blog-card" id="';
 				html += postName + '"' + '>';
 				html += '<div class="card-body">';
 				html += '<div id ="' + contentId + '" class="justify-content-center">';  
@@ -55,13 +55,13 @@ pageRegistrar.register(new Page("blog", () => {
 				html += '</div>';
 				html += '</div>';
 
-				var parsedHTML = $(html);
+				const parsedHTML = $(html);
 				parsedHTML.hide();
 
 				$('#blog-page').append(parsedHTML).ready(() => {
-					var contentSection = $('#' + contentId);
+					const contentSection = $('#' + contentId);
 					contentSection.children().each((index, element) => {
-						for(var i = 1; i < 4; i++) {
+						for(let i = 1; i < 4; i++) {
 							$(element).filter('h' + i).addClass('blog-h' + i);
 						}
 						$(element).filter(':header').addClass('justify-content-center row')

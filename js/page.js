@@ -6,8 +6,8 @@ class Page {
 	}
 
 	static fromURL() {
-		var loc = "" + window.location;
-		var pageIndex = loc.lastIndexOf('#page=');
+		const loc = "" + window.location;
+		const pageIndex = loc.lastIndexOf('#page=');
 		if(pageIndex == -1) {
 			return null;
 		}
@@ -32,8 +32,8 @@ class PageRegistrar {
 			return false;
 		}
 		
-		for(var i = 0; i < this.pages.length; i++) {
-			var page = this.pages[i];
+		for(let i = 0; i < this.pages.length; i++) {
+			const page = this.pages[i];
 			if(page.name == name) {
 				this.lazyLoadPage(page);
 				if(this.currentPage != null) {
@@ -50,9 +50,9 @@ class PageRegistrar {
 	
 	register(page) {
 		this.pages.push(page);
-		var name = page.name;
-		var outsideThis = this;
-		var poundName = "#" + name;
+		const name = page.name;
+		const outsideThis = this;
+		const poundName = "#" + name;
 		$(poundName + "-button").click(() => { //Register current page handler
 			outsideThis.setCurrentPage(name);
 		});
@@ -69,9 +69,9 @@ class PageRegistrar {
 	}
 
 	updateURL(name) {
-		var href = "" + window.location.href;
+		let href = "" + window.location.href;
 		href = href.substring(0, href.lastIndexOf("#"));
-		var loc = href + "#page=" + name;
+		const loc = href + "#page=" + name;
 		window.location = loc;
 	}
 
@@ -94,8 +94,8 @@ class PageRegistrar {
 
 	lazyLoadPage(page) {
 		if(!page.loaded) {
-			var pageName = page.name;
-			var divName = pageName + "-page";
+			const pageName = page.name;
+			const divName = pageName + "-page";
 			$("#pages").append('<div id="' + divName + '" style="display: none;"></div>');
 			$("#" + divName).load("page/html/" + pageName + ".html", page.renderer);
 			page.loaded = true;

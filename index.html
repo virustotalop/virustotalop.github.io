@@ -59,7 +59,7 @@
 				<script src="page/js/blog.js"></script>
 				<!--Handle initial page load-->
 				<script>
-					let currentPage = Page.fromURL();
+					const currentPage = Page.fromURL();
 					if(currentPage == null) {
 						currentPage = "home";
 					}					
@@ -86,7 +86,7 @@
 			<!-- Modals -->
 			<div id="modals">
 				<script>
-					var element = document.getElementById("modals");
+					const element = document.getElementById("modals");
 					
 					//Discord modal
 					new Modal("discord-modal", "Add me on discord", "Discord id virustotal#0001").create(element);
@@ -110,7 +110,7 @@
 				function email() {
 					const emailAnchor = document.getElementById('email-anchor');
 					if(emailAnchor.href.endsWith("#")) {
-						var email = "virus";
+						let email = "virus";
 						email += "total";
 						email += "op";
 						const hostName = "gmail.com"
@@ -123,9 +123,9 @@
 			<script>
 				//↑↑↓↓←→←→BA 
 				const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-				var currentIndex = -1;
+				let currentIndex = -1;
 				$(document).keydown((event) => {
-					var which = event.which;
+					const which = event.which;
 					if(which == code[currentIndex + 1]) {
 						currentIndex += 1;
 					} else {
