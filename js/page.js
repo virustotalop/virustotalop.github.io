@@ -7,7 +7,7 @@ class Page {
 
 	static fromURL() {
 		var loc = "" + window.location;
-		var pageIndex = loc.indexOf('#page=');
+		var pageIndex = loc.lastIndexOf('#page=');
 		if(pageIndex == -1) {
 			return null;
 		}
@@ -70,7 +70,7 @@ class PageRegistrar {
 
 	updateURL(name) {
 		var href = "" + window.location.href;
-		href = href.substring(0, href.indexOf("#"));
+		href = href.substring(0, href.lastIndexOf("#"));
 		var loc = href + "#page=" + name;
 		window.location = loc;
 	}
