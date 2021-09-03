@@ -66,7 +66,7 @@ class PageRegistrar {
 	}
 
 	updateTitle(name) {
-		document.title = "Page - " + name;
+		document.title = name.charAt(0).toUpperCase() + name.substring(1) + " - virustotalop";
 	}
 
 	updateURL(name) {
