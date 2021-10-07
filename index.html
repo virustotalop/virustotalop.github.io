@@ -59,7 +59,7 @@
 				<script src="page/js/blog.js"></script>
 				<!--Handle initial page load-->
 				<script>
-					const currentPage = Page.fromURL();
+					let currentPage = Page.fromURL();
 					if(currentPage == null) {
 						currentPage = "home";
 					}					
