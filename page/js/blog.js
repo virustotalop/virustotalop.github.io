@@ -37,15 +37,17 @@ pageRegistrar.register(new Page("blog", () => {
 			const buttonId = postName + '-button';
 			const contentId = postName + '-content';
 			const blogPost = relative + postFileName;
+			const postTitle = value.title;
+			console.log(postTitle);
 
 			$.get(blogPost, (markdown) => {
 				const convertedHTML = converter.makeHtml(markdown);
-				//console.log('converted html: ' + convertedHTML);
+				const jHtml = $(convertedHTML);
 				let html = '<div class="justify-content-center card blog-card" id="';
 				html += postName + '"' + '>';
 				html += '<div class="card-body">';
-				html += '<div id ="' + contentId + '" class="justify-content-center">';  
-				html += convertedHTML;
+				html += '<h1 class="blog-h1 justify-content-center row">' + postTitle + "</h1>";  
+				html += '<div id ="' + contentId + '" class="justify-content-center">';
 				html += '</div>'
 				html += '<div>';
 				html += '<p>Posted ' + localTime;
@@ -56,38 +58,32 @@ pageRegistrar.register(new Page("blog", () => {
 				html += '</div>';
 
 				const parsedHTML = $(html);
-				parsedHTML.hide();
 
-				$('#blog-page').append(parsedHTML).ready(() => {
+				$('#blog-page').append(html).ready(() => {
 					const contentSection = $('#' + contentId);
-					contentSection.children().each((index, element) => {
-						for(let i = 1; i < 4; i++) {
+					jHtml.each((index, element) => {
+						for(let i = 2; i < 4; i++) {
 							$(element).filter('h' + i).addClass('blog-h' + i);
 						}
 						$(element).filter(':header').addClass('justify-content-center row')
 						$(element).filter('pre').each((index, codeBlock) => {
 							hljs.highlightBlock(codeBlock);
-							console.log('code block');
 						});
-
-						if(index > 1) {
-							$(element).hide();
+						if(index == 0) { //Only append first paragraph
+							contentSection.append(element);
 						}
 					});
-
+				
 					/*var firstPara = contentSection.find('p').first();
 					var firstParaText = firstPara.contents();
 					var truncated = truncateText(firstParaText);
 					firstPara.contents(truncated);*/
 
 					$('#' + buttonId).click(() => {
-						$("#" + contentId).children().each((i, element) => {
-							$(element).show();
-							//firstPara.contents(firstParaText);
-						});
+						contentSection.empty();
+						contentSection.append(jHtml);
 						$('#' + buttonId).hide();
 					});
-					$("#" + postName).show();
 				});
 			});
 		});

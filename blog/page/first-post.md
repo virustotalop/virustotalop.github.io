@@ -1,5 +1,3 @@
-# Hello World
-
 :rocket: We have lift off! This is the first blog post on my newly redesigned website! I figured what better way to kick off the blog posts besides detailing how the website was built! This website was built primarily using [jquery](https://jquery.com/) for dynamic loading and blog posts are generated using [showdown](https://github.com/showdownjs/showdown). 
 
 ## Design Philosophy
