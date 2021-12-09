@@ -10,6 +10,7 @@ pageRegistrar.register(new Page("home", () => {
 	new CodeCard('Commander', 'fas fa-terminal', 'A platform agnostic Minecraft command framework.', 'https://github.com/ravenlab/commander').render(element);
 	new CodeCard('DynamicGui', 'fas fa-window-maximize', 'A plugin to make writing menus for Minecraft easy.', 'https://www.github.com/ClubObsidian/DynamicGui').render(element);
 	new CodeCard('DynamicGuiParser', 'fas fa-project-diagram', 'Next generation parser for DynamicGui using AST.', 'https://github.com/ClubObsidian/DynamicGuiParser').render(element);
+	new CodeCard('ObbyLang', 'fab fa-js', 'JavaScript toolkit for making content quickly.', 'https://github.com/ClubObsidian/ObbyLang').render(element);
 	new CodeCard('Poseidon', 'fas fa-plug', 'A plugin platform that is to be implemented in Hydra.', 'https://github.com/ClubObsidian/poseidon').render(element);
 	new CodeCard('Random.js', 'fas fa-random', 'A port of Java\'s Random class to Javascript.', 'https://github.com/virustotalop/random.js').render(element);
 	new CodeCard('Trident', 'fas fa-bolt', 'A fast eventbus that uses bytecode generation.', 'https://github.com/ClubObsidian/trident').render(element);
