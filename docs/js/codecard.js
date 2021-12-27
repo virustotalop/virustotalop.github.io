@@ -11,11 +11,11 @@ class CodeCard {
     }
     
     parsePlatform(url) {
-        if (url.startsWith("https://github.com") || url.startsWith("https://www.github.com")) {
+        const lowerURL = url.toLowerCase();
+        if(lowerURL.includes("github.com")) {
             this.platform = "Github";
             this.repoIcon = "fab fa-github";
-        }
-        else if (url.startsWith("https://gitlab.com") || url.startsWith("https://www.gitlab.com")) {
+        } else if(lowerURL.includes("gitlab.com")) {
             this.platform = "Gitlab";
             this.repoIcon = "fab fa-gitlab";
         }
