@@ -10,7 +10,7 @@ pageRegistrar.register(new Page("home", () => {
 		});
 		return built;
 	};
-	$.getJSON("page/json/cards.json", (data) => {
+	$.getJSON("page/json/code-cards.json", (data) => {
 		$.each(data, (key, value) => {
 			const icon = value['icon'];
 			const description = parseDescription(value['description']);
