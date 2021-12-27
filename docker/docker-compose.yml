@@ -2,8 +2,8 @@ version: '3.1'
 
 services:
   apache:
-    build: ../src
+    build: ../docs
     ports:
     - "8080:80"
     volumes:
-    - ../src:/var/www/html/
+    - ../docs:/var/www/html/
