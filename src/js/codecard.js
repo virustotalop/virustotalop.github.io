@@ -1,11 +1,15 @@
+var codeCardGlobalHeaderSize = 'h5';
+
 class CodeCard {
-    constructor(title, icon, description, url) {
+    constructor(title, icon, description, url, headerSize) {
         this.title = title;
         this.icon = icon;
         this.description = description;
         this.url = url.toLowerCase();
+        this.headerSize = headerSize;
         this.parsePlatform(url);
     }
+    
     parsePlatform(url) {
         if (url.startsWith("https://github.com") || url.startsWith("https://www.github.com")) {
             this.platform = "Github";
@@ -16,12 +20,15 @@ class CodeCard {
             this.repoIcon = "fab fa-gitlab";
         }
     }
+
     render(element) {
-        var html = '<div class="card code-card">' +
+        const headerSize = this.headerSize !== null && this.headerSize !== undefined ? this.headerSize : codeCardGlobalHeaderSize;
+        var html = ('<div class="card code-card">' +
             '<div class="card-body">' +
-            '<h5 class="card-title"><i class="' + this.icon + '"></i> ' + this.title + '</h5>' +
+            '<hsize class="card-title"><i class="' + this.icon + '"></i> ' + this.title + '</hsize>' +
             '<p class="card-text">' + this.description + '</p>' +
-            '<a href="' + this.url + '" target="_blank" class="btn btn-primary font"><i class="' + this.repoIcon + '"></i> View on ' + this.platform + '</a>';
+            '<a href="' + this.url + '" target="_blank" class="btn btn-primary font"><i class="' + this.repoIcon + '"></i> View on ' + this.platform + '</a>')
+            .replaceAll("hsize", headerSize);
         element.innerHTML = element.innerHTML + html;
     }
 }
