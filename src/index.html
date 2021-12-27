@@ -95,7 +95,7 @@
 					//new Modal("oss-modal", "OSS Used", "Discord id virustotal#0001").create(element);
 
 					//License modal
-					$.get("LICENSE.md", function(data) {
+					$.get("https://raw.githubusercontent.com/virustotalop/virustotalop.github.io/master/LICENSE.md", function(data) {
 						data = replaceAll("\n", "</br>", data);
 						new Modal("license-modal", "License", data).create(element);
 					}, 'text');
