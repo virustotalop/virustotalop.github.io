@@ -1,6 +1,8 @@
-# My website
+# virustotalop.github.io
  
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE.md)
+
+My personal website, portfolio and blog. Mostly written from scratch with jQuery and some other libraries.
 
 ## Forking
 
