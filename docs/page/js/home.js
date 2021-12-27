@@ -1,18 +1,21 @@
-//Load page
 pageRegistrar.register(new Page("home", () => {
-
-	//Get projects element
-	var element = document.getElementById('projects');
-
-	//Generate code cards
-	new CodeCard('AnonymizingText', 'fas fa-envelope-open-text', 'A project to attempt to remove author attribution.', 'https://github.com/virustotalop/AnonymizingText').render(element);
-	new CodeCard('Codecard', 'fas fa-code', 'The code cards you see on this website.', 'https://github.com/ravenlab/codecard').render(element);
-	new CodeCard('Commander', 'fas fa-terminal', 'A platform agnostic Minecraft command framework.', 'https://github.com/ravenlab/commander').render(element);
-	new CodeCard('DynamicGui', 'fas fa-window-maximize', 'A plugin to make writing menus for Minecraft easy.', 'https://www.github.com/ClubObsidian/DynamicGui').render(element);
-	new CodeCard('DynamicGuiParser', 'fas fa-project-diagram', 'Next generation parser for DynamicGui using AST.', 'https://github.com/ClubObsidian/DynamicGuiParser').render(element);
-	new CodeCard('ObbyLang', 'fab fa-js', 'JavaScript toolkit for making content quickly.', 'https://github.com/ClubObsidian/ObbyLang').render(element);
-	new CodeCard('Poseidon', 'fas fa-plug', 'A plugin platform that is to be implemented in Hydra.', 'https://github.com/ClubObsidian/poseidon').render(element);
-	new CodeCard('Random.js', 'fas fa-random', 'A port of Java\'s Random class to Javascript.', 'https://github.com/virustotalop/random.js').render(element);
-	new CodeCard('Trident', 'fas fa-bolt', 'A fast eventbus that uses bytecode generation.', 'https://github.com/ClubObsidian/trident').render(element);
-	new CodeCard('Wrappy', 'fas fa-file', 'A configuration library for yaml, xml, json and hocon.', 'https://github.com/ClubObsidian/wrappy').render(element);	
+	const element = document.getElementById('projects');
+	const createCard = (projectName, icon, description, url) => {
+		new CodeCard(projectName, icon, description, url).render(element);
+	};
+	const parseDescription = (description) => {
+		var built = "";
+		description.forEach((value) => {
+			built += value + ' ';	
+		});
+		return built;
+	};
+	$.getJSON("page/json/cards.json", (data) => {
+		$.each(data, (key, value) => {
+			const icon = value['icon'];
+			const description = parseDescription(value['description']);
+			const url = value['url'];
+			createCard(key, icon, description, url);
+		});
+	});
 }));

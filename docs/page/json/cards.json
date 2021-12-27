@@ -1,0 +1,58 @@
+{
+    "AnonymizingText": {
+        "icon": "fas fa-envelope-open-text",
+        "description": [
+            "A project to attempt to remove author attribution. Written as my capstone project at California State University Monterey Bay."
+        ],
+        "url": "https://github.com/virustotalop/AnonymizingText"
+    },
+    "DynamicGui": {
+        "icon": "fas fa-window-maximize",
+        "description": [
+            "A plugin to make writing menus for Minecraft easy."
+        ],
+        "url": "https://www.github.com/ClubObsidian/DynamicGui"
+    },
+    "DynamicGuiParser": {
+        "icon": "fas fa-project-diagram",
+        "description": [
+            "Next generation parser for DynamicGui using AST."
+        ],
+        "url": "https://github.com/ClubObsidian/DynamicGuiParser"
+    },
+    "ObbyLang": {
+        "icon": "fab fa-js",
+        "description": [
+            "JavaScript toolkit for making content quickly."
+        ],
+        "url": "https://github.com/ClubObsidian/ObbyLang"
+    },
+    "Poseidon": {
+        "icon": "fas fa-plug",
+        "description": [
+            "A plugin platform that is to be implemented in Hydra."
+        ],
+        "url": "https://github.com/ClubObsidian/poseidon"
+    },
+    "Random.js": {
+        "icon": "fas fa-random",
+        "description": [
+            "A port of Java''s Random class to Javascript."
+        ],
+        "url": "https://github.com/virustotalop/random.js"
+    },
+    "Trident": {
+        "icon": "fas fa-bolt",
+        "description": [
+            "A fast eventbus that uses bytecode generation."
+        ],
+        "url": "https://github.com/ClubObsidian/trident"
+    },
+    "Wrappy": {
+        "icon": "fas fa-file",
+        "description": [
+            "A configuration library for yaml, xml, json and hocon."
+        ],
+        "url": "https://github.com/ClubObsidian/wrappy"
+    }
+}
