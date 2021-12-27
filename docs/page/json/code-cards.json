@@ -13,6 +13,17 @@
         ],
         "url": "https://github.com/virustotalop/AnonymizingText"
     },
+    "Crouton": {
+        "icon": "fas fa-microchip",
+        "description": [
+            "A wrapper for Kotlin's coroutines or light weight threads.",
+            "Allows users to use Kotlin coroutines in their Java code by creating a wrapper in Kotlin that can be easily used",
+            "in Java code. Crouton was written due to Java not having any implemention of light weight threads such as: coroutines, fibers or green threads.",
+            "With Crouton millions of coroutines can be spawned where as with threads the user can easily run out of threads even with thread pooling.",
+            "Crouton is in use in Obbylang currently but can be easily used in any project that wishes to use coroutines."
+        ],
+        "url": "https://github.com/ClubObsidian/crouton"
+    },
     "DynamicGui": {
         "icon": "fas fa-window-maximize",
         "description": [
