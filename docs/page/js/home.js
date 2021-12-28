@@ -4,7 +4,7 @@ pageRegistrar.register(new Page("home", () => {
 		new CodeCard(projectName, icon, description, url).render(element);
 	};
 	const parseDescription = (description) => {
-		var built = "";
+		let built = "";
 		description.forEach((value) => {
 			built += value + ' ';	
 		});
