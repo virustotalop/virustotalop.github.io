@@ -84,6 +84,19 @@
         ],
         "url": "https://github.com/ClubObsidian/trident"
     },
+    "virustotalop.github.io": {
+        "icon": "fab fa-html5",
+        "description": [
+            "This website has been a labor of love of trying to push the limits of what is possible with",
+            "running a website that has no backend while also trying to maintain fast page load times.",
+            "There are quite a few features that I am proud of with this website: ",
+            "a from scratch single page application framework, using only jQuery for page loading, that supports lazy loading and navigation buttons,",
+            "a blog system from scratch using jQuery and <a href=\"https://github.com/showdownjs/showdown\">showdown</a> for markdown parsing",
+            "and last but not least these code cards which get loaded in using jQuery which consumes a json file and then generates the code cards.",
+            "There is also at least one easter egg on this website if you take a look at the source code!"
+        ],
+        "url": "https://github.com/virustotalop/virustotalop.github.io"
+    },
     "Wrappy": {
         "icon": "fas fa-file",
         "description": [
