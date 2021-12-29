@@ -5,7 +5,7 @@ class Page {
 		this.loaded = false;
 	}
 
-	static fromURL() {
+	static getFromCurrentURL() {
 		const loc = "" + window.location;
 		const pageIndex = loc.lastIndexOf('#page=');
 		if(pageIndex == -1) {
@@ -85,7 +85,7 @@ class PageRegistrar {
 
 	registerNavigationHandler() { //Handle forward and back buttons
 		$(window).on('popstate', (event) => {
-			let pageName = Page.fromURL();
+			let pageName = Page.getFromCurrentURL();
 			if(pageName != null) { //navigating to the same page is handled in the setCurrentPage method
 				this.setCurrentPage(pageName);
 			}
