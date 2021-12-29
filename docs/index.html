@@ -21,7 +21,8 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/default.min.css" integrity="sha512-kZqGbhf9JTB4bVJ0G8HCkqmaPcRgo88F0dneK30yku5Y/dep7CZfCnNml2Je/sY4lBoqoksXz4PtVXS4GHSUzQ==" crossorigin="anonymous" />
-		<script src = "js/page.js"></script>
+		<script src="js/page.js"></script>
+		<script src="js/konami.js"></script>
 		<script> var pageRegistrar = new PageRegistrar(); </script>
 		<script>
 			function replaceAll(search, replaceWith, data) {
@@ -119,27 +120,6 @@
 					emailAnchor.click();
 				}
 			</script>
-			<!-- Easter Egg -->
-			<script>
-				//↑↑↓↓←→←→BA 
-				const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-				let currentIndex = -1;
-				$(document).keydown((event) => {
-					const which = event.which;
-					if(which == code[currentIndex + 1]) {
-						currentIndex += 1;
-					} else {
-						currentIndex = -1;
-					}
-
-					if(currentIndex == (code.length - 1)) {
-						console.log('You win!');
-						currentIndex = -1;
-						document.getElementById('konami').play();
-					} 
-				});
-			</script>
-
 		</div>
 	</body>
 </html>
