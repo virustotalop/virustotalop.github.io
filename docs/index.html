@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/default.min.css" integrity="sha512-kZqGbhf9JTB4bVJ0G8HCkqmaPcRgo88F0dneK30yku5Y/dep7CZfCnNml2Je/sY4lBoqoksXz4PtVXS4GHSUzQ==" crossorigin="anonymous" />
 		<script src="js/page.js"></script>
 		<script src="js/konami.js"></script>
+		<script src="js/email.js"></script>
 		<script> var pageRegistrar = new PageRegistrar(); </script>
 		<script>
 			function replaceAll(search, replaceWith, data) {
@@ -107,19 +108,6 @@
 				<source src="audio/powerup.mp3" type="audio/mpeg">
 			</audio>
 			<a id="email-anchor" href="#"></a>
-			<script>
-				function email() {
-					const emailAnchor = document.getElementById('email-anchor');
-					if(emailAnchor.href.endsWith("#")) {
-						let email = "virus";
-						email += "total";
-						email += "op";
-						const hostName = "gmail.com"
-						emailAnchor.href = "mailto:" + email + "@" + hostName;
-					}
-					emailAnchor.click();
-				}
-			</script>
 		</div>
 	</body>
 </html>
