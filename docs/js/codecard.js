@@ -1,4 +1,4 @@
-var codeCardGlobalHeaderSize = 'h5';
+var codeCardGlobalHeaderSize = 'h4';
 
 class CodeCard {
     constructor(title, icon, description, url, headerSize) {
