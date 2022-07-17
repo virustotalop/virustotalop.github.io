@@ -1,5 +1,4 @@
 pageRegistrar.register(new Page("yuzu", () => {
-    const table = document.getElementById('games-table');
     const compatMap = {
         '0': 'Perfect',
         '1': 'Great',
