@@ -20,7 +20,6 @@ pageRegistrar.register(new Page("yuzu", () => {
     }).done((data) => {
         const html = $.parseHTML(data);
         $('tr', html).each((index, value) => {
-            console.log(value)
             let children = value.children
             if (children.length === 3) {
                 let titleDataset = children[0].dataset
@@ -39,11 +38,9 @@ pageRegistrar.register(new Page("yuzu", () => {
             let compatNum = key[0]
             let games = key[1]
             games.sort()
-            console.log(games)
             let compat = compatMap[compatNum]
             for (let i = 0; i < games.length; i++) {
                 let title = games[i]
-                console.log(compat)
                 $('<tr><td>' + title + '</td><td>' + compat + '</td></tr>').appendTo('#games-table')
             }
         })
