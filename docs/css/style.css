@@ -82,6 +82,14 @@
   text-decoration: underline;
 }
 
+.base64-textarea {
+  margin-bottom: 0.5rem;
+  width: 50%;
+}
+
+.base64-button {
+  margin-bottom: 1rem;
+}
 
 #konami {
   visibility: hidden;
