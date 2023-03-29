@@ -36,14 +36,6 @@
         ],
         "url": "https://www.github.com/ClubObsidian/DynamicGui"
     },
-    "DynamicGuiParser": {
-        "icon": "fas fa-project-diagram",
-        "description": [
-            "The parser for DynamicGui that uses abstract syntax trees for parsing gui files. Has 100% code coverage since every",
-            "component is thorougly tested for every edge case."
-        ],
-        "url": "https://github.com/ClubObsidian/DynamicGuiParser"
-    },
     "ObbyLang": {
         "icon": "fab fa-js",
         "description": [
