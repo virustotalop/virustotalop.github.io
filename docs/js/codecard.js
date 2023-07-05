@@ -1,9 +1,8 @@
 var codeCardGlobalHeaderSize = 'h4';
 
 class CodeCard {
-    constructor(title, icon, description, url, headerSize) {
+    constructor(title, description, url, headerSize) {
         this.title = title;
-        this.icon = icon;
         this.description = description;
         this.url = url.toLowerCase();
         this.headerSize = headerSize;
@@ -26,7 +25,7 @@ class CodeCard {
         var html = (
             '<div class="card code-card">' +
                 '<div class="card-body">' +
-                    '<hsize class="card-title text-center"><i class="' + this.icon + '"></i> ' + this.title + '</hsize>' +
+                    '<hsize class="card-title text-center">' + this.title + '</hsize>' +
                     '<p class="card-text">' + this.description + '</p>' +
                 '</div>' +
                 '<a href="' + this.url + '" target="_blank" class="btn btn-primary font"><i class="' + this.repoIcon + '"></i> View on ' + this.platform + '</a>' +
