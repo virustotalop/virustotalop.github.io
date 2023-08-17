@@ -98,6 +98,10 @@
   height: 0px;
 }
 
+.education-section {
+  padding-bottom: 1rem;
+}
+
 @media(min-width: 1000px) {
   .about {
     width: 80%; 
