@@ -1,5 +1,5 @@
 pageRegistrar.register(new Page("home", () => {
-	const element = document.getElementById('projects');
+	const element = document.getElementById('open-source-projects');
 	const createCard = (projectName, description, url) => {
 		new CodeCard(projectName, description, url).render(element);
 	};
