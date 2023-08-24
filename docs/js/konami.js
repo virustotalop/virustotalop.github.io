@@ -1,5 +1,5 @@
-//↑↑↓↓←→←→BA 
-const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+//↑↑↓↓←→←→BA ENTER 
+const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 let currentIndex = -1;
 $(document).keydown((event) => {
     const which = event.which;
