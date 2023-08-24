@@ -82,12 +82,12 @@
   text-decoration: underline;
 }
 
-.base64-textarea {
+.tool-textarea {
   margin-bottom: 0.5rem;
   width: 50%;
 }
 
-.base64-button {
+.tool-button {
   margin-bottom: 1rem;
 }
 
