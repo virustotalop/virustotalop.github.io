@@ -85,4 +85,4 @@ Over time I'm sure I will probably add more properties but I would like to fully
 
 ## So Long and Thanks for all the Fish
 
-Well if you actually decided to read this than thank you! I don't think anyone is actually going to read this but putting some of the technical details from things I work on into writing gives me some interesting ideas and allows me to reflect on the work that I've done. *Pssst* hit ↑ ↑ ↓ ↓ ← → ← → B A [Enter]
+Well if you actually decided to read this thank you! I don't think anyone is actually going to read this but putting some of the technical details from things I work on into writing gives me some interesting ideas and allows me to reflect on the work that I've done. *Pssst* hit ↑ ↑ ↓ ↓ ← → ← → B A [Enter]
