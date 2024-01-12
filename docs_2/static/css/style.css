@@ -1,0 +1,123 @@
+.font {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.top-header {
+  font-size: 3rem;
+  padding-top: 2.5rem;
+}
+
+.top-text {
+  padding-top: 1rem;
+  font-size: 3rem;
+  padding-left: 1rem;
+}
+
+.btn.top-button {
+  font-size: 1.2rem;
+  color: black;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/*.big-icon:hover {
+  margin-bottom: 0;
+  font-size: 2.5rem;
+}*/
+
+.about {
+  word-wrap: normal;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-h2 {
+  font-size: 1.25rem;
+}
+
+.blog-h3 {
+  font-size: 1rem;
+}
+
+.btn {
+  box-shadow: none !important;
+}
+
+.card-section {
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.code-card {
+  width: 30rem;
+  margin: 0.5rem;
+}
+
+.card.blog-card {
+  width: 56rem;
+  margin: 0 auto !important;
+  border-width: 2px;
+}
+
+.footer {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-link {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.tool-textarea {
+  margin-bottom: 0.5rem;
+  width: 50%;
+}
+
+.tool-button {
+  margin-bottom: 1rem;
+}
+
+#konami {
+  visibility: hidden;
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
+.education-section {
+  padding-bottom: 1rem;
+}
+
+@media(min-width: 1000px) {
+  .about {
+    width: 80%; 
+  }
+}
+
+@media(max-width: 520px) {
+	.top-text {
+    padding-left: 0rem;
+	  font-size: 2.5rem;
+  }
+	.about {
+    padding-left: 0.5rem;
+	  padding-right: 0.5rem;
+  }
+  .card.blog-card {
+    width: 25rem;
+  }
+}

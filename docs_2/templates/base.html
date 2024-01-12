@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon/favicon-128x128.png" sizes="128x128">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://virustotalop.github.io/">
+    <meta property="og:title" content="VirusTotalOP's Website">
+    <meta property="og:description" content="Portfolio and Blog">
+    <!--<meta property="og:image" content="website">-->
+    <title>Hello World!</title>
+    <script src="js/codecard.js"></script>
+    <script src="js/modal.js" async></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"
+        integrity="sha256-jl1+DOsSs9uABTKppOJ2GF8kXoc3XQzBtFFyS0i9Xoo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"
+        integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/default.min.css"
+        integrity="sha512-kZqGbhf9JTB4bVJ0G8HCkqmaPcRgo88F0dneK30yku5Y/dep7CZfCnNml2Je/sY4lBoqoksXz4PtVXS4GHSUzQ=="
+        crossorigin="anonymous" />
+    <script src="js/page.js"></script>
+    <script src="js/konami.js"></script>
+    <script src="js/email.js"></script>
+    <script> var pageRegistrar = new PageRegistrar(); </script>
+    <script>
+        function replaceAll(search, replaceWith, data) {
+            while (data.includes(search)) {
+                data = data.replace(search, replaceWith);
+            }
+            return data;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="font container">
+
+        <!-- Top header -->
+        <div class="justify-content-center row top-header">
+            <img id="gravatar" class="img-responsive rounded" src="img/gravatar.png" height=100 width=100
+                alt="gravatar">
+        </div>
+        <div class="justify-content-center row top-header">
+            <div class="top-text">VIRUSTOTALOP</div>
+        </div>
+
+        <!-- Icon bar -->
+        <div class="justify-content-center row icon-top-bar">
+            <button id="home-button" class="btn top-button" href="#home"><i class="fas fa-home" style="color:black"></i>
+                Home</button>
+            <button id="blog-button" class="btn top-button" href="#blog"><i class="fas fa-blog" style="color:black"></i>
+                Blog</button>
+            <a class="btn top-button" href="#" onclick="email()"><i class="fas fa-envelope" style="color:black"></i>
+                Email</a>
+            <a class="btn top-button" href="https://github.com/virustotalop" target="_blank"><i
+                    class="fab fa-github"></i> Github</a>
+            <button id="tools-button" class="btn top-button dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-flask" style="color:black"></i>
+                Tools</button>
+            <div class="dropdown-menu" aria-labelledby="tools-button">
+                <a class="dropdown-item" href="#page=latin-text">ASCII to Latin</a>
+                <a class="dropdown-item" href="#page=base64-decode">Base64 Decode</a>
+                <a class="dropdown-item" href="#page=base64-encode">Base64 Encode</a>
+            </div>
+        </div>
+
+        <!-- Pages-->
+        <div id="pages">
+            <noscript>
+                Unfortunately you need Javascript enabled to use my website, please enable Javascript to view the
+                website!
+            </noscript>
+            <script src="page/js/home.js"></script>
+            <script src="page/js/blog.js"></script>
+            <script src="page/js/base64-decode.js"></script>
+            <script src="page/js/base64-encode.js"></script>
+            <script src="page/js/latin-text.js"></script>
+            <!--Handle initial page load-->
+            <script>
+                let currentPage = Page.getFromCurrentURL();
+                if (currentPage == null) {
+                    currentPage = "home";
+                }
+                pageRegistrar.setCurrentPage(currentPage);
+            </script>
+        </div>
+
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="justify-content-center row">
+                <p>
+                    Created with <i class="fas fa-heart" style="color:red"></i> with
+                    Open Source Software.
+                    <!--<a href="#" class="footer-link" data-toggle="modal" data-target="#oss-modal"></a>-->
+                </p>
+            </div>
+            <div class="justify-content-center row">
+                <p>
+                    Licensed under the <a href="#" class="footer-link" data-toggle="modal"
+                        data-target="#license-modal">MIT License.</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div id="modals">
+            <script>
+                const element = document.getElementById("modals");
+                //License modal
+                $.get("https://raw.githubusercontent.com/virustotalop/virustotalop.github.io/master/LICENSE.md", function (data) {
+                    data = replaceAll("\n", "</br>", data);
+                    new Modal("license-modal", "License", data).create(element);
+                }, 'text');
+
+            </script>
+        </div>
+        <audio controls id="konami">
+            <source src="audio/powerup.mp3" type="audio/mpeg">
+        </audio>
+        <a id="email-anchor" href="#"></a>
+    </div>
+</body>
+
+</html>
