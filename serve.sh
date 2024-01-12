@@ -1,2 +1,1 @@
-docker rm zola-serve
-docker run -u "$(id -u):$(id -g)" --name zola-serve -v $PWD/docs_2:/docs_2 --workdir /docs_2 -p 8080:8080 ghcr.io/getzola/zola:v0.17.1 serve --interface 0.0.0.0 --port 8080 --base-url localhost
+docker run -u "$(id -u):$(id -g)" --name zola_serve -v $PWD/docs_2:/docs_2 --workdir /docs_2 -p 8080:8080 ghcr.io/getzola/zola:v0.17.1 serve --interface 0.0.0.0 --port 8080 --base-url localhost
