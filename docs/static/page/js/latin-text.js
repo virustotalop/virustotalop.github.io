@@ -21,4 +21,4 @@ pageRegistrar.register(new Page("latin-text", () => {
         let convertedText = convertToUnicode(text);
         $('#converted').val(convertedText)
     });
-}));
+}, Location.DYNAMIC));

@@ -1,3 +1,10 @@
++++
+title = "Hello World"
+date = 2021-02-14
+[extra]
+page_id="hello-world"
++++
+
 :rocket: We have lift off! This is the first blog post on my newly redesigned website! I figured what better way to kick off the blog posts besides detailing how the website was built! This website was built primarily using [jquery](https://jquery.com/) for dynamic loading and blog posts are generated using [showdown](https://github.com/showdownjs/showdown). 
 
 ## Design Philosophy
@@ -162,8 +169,12 @@ If you made it this far thank you for reading. Blogging is something I intend on
 
 Thank you to the all the people who helped with the design of this website.
 
-@DanHues
-@FelixOBrien
-@haloflooder
-@lhurt51
-@magicmq
+[@DanHues](https://github.com/DanHues)
+
+[@FelixOBrien](https://github.com/FelixOBrien)
+
+[@haloflooder](https://github.com/haloflooder)
+
+[@lhurt51](https://github.com/lhurt51)
+
+[@magicmq](https://github.com/magicmq)

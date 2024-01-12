@@ -4,4 +4,4 @@ pageRegistrar.register(new Page("base64-decode", () => {
         let decodedText = atob(text)
         $('#decoded').val(decodedText)
     });
-}));
+}, Location.DYNAMIC));

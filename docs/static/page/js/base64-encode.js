@@ -4,4 +4,4 @@ pageRegistrar.register(new Page("base64-encode", () => {
         let encodedText = btoa(text)
         $('#encoded').val(encodedText)
     });
-}));
+}, Location.DYNAMIC));

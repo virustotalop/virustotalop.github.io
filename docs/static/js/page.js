@@ -1,8 +1,14 @@
+class Location {
+	static STATIC = '/page/';
+	static DYNAMIC = 'page/html/';
+}
+
 class Page {
-	constructor(name, renderer) {
+	constructor(name, renderer, location) {
 		this.name = name;
 		this.renderer = renderer;
 		this.loaded = false;
+		this.location = location;
 	}
 
 	static getFromCurrentURL() {
@@ -97,7 +103,9 @@ class PageRegistrar {
 			const pageName = page.name;
 			const divName = pageName + "-page";
 			$("#pages").append('<div id="' + divName + '" style="display: none;"></div>');
-			$("#" + divName).load("page/html/" + pageName + ".html", page.renderer);
+			const suffix = (page.location === Location.DYNAMIC ? ".html" : "/");
+			console.log('suffix: ' + suffix)
+			$("#" + divName).load(page.location + pageName + suffix, page.renderer);
 			page.loaded = true;
 		}
 	}

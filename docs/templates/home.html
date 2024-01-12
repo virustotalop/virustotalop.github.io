@@ -25,8 +25,21 @@
 </div>
 <!-- Projects header -->
 <div class="justify-content-center row">
-	<div class="section-header">OS PROJECTS</div>
+	<div class="section-header">PROJECTS</div>
 </div>
 
 <!-- Cards -->
-<div id="open-source-projects" class="card-section justify-content-center row"></div>
+<div id="open-source-projects" class="card-section justify-content-center row">
+	{% block content %}
+	{% for page in section.pages %}
+	<div class="card code-card">
+		<div class="card-body">
+			<h4 class="card-title text-center">{{ page.title | safe}}</h4>
+			<p class="card-text">{{ page.content | safe}}</p>
+		</div>
+		<a href="{{ page.extra.url }}" target="_blank" class="btn btn-primary font"> <i class="fab fa-github"></i> View
+			on Github </a>
+	</div>
+	{% endfor %}
+	{% endblock content %}
+</div>
