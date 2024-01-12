@@ -2,31 +2,31 @@
 <div class="justify-content-center row">
   <div class="section-header">BLOG</div>
 </div>
-<ul>
-  <script>
-    const loadPost = (divId, link) => {
-      console.log(divId);
-      console.log(link);
-      $("#" + divId + "-div").load(link, () => {
-        $("#" + divId + "-button").hide();
-        console.log("Loaded");
-      });
-    }
-  </script>
+<script>
+  const loadPost = (divId, link) => {
+    console.log(divId);
+    console.log(link);
+    $("#" + divId + "-div").load(link, () => {
+      $("#" + divId + "-button").hide();
+      console.log("Loaded");
+    });
+  }
+</script>
+<div class="justify-content-center row">
   {% block content %}
   {% for page in section.pages %}
   <div class="justify-content-center card blog-card">
     <div class="card-body">
       <h1 class="blog-h1 justify-content-center row">{{ page.title | safe }}</h1>
       <div id="{{ page.extra.page_id | safe }}-div" class="justify-content-center"></div>
-      <div class ="justify-content-center row">
-        <button id="{{ page.extra.page_id | safe }}-button" class="btn btn-primary btn-blog-post" onclick='loadPost("{{ page.extra.page_id | safe }}", "{{ page.permalink | safe }}")'>Read</button>
+      <div class="justify-content-center row">
+        <button id="{{ page.extra.page_id | safe }}-button" class="btn btn-primary btn-blog-post"
+          onclick='loadPost("{{ page.extra.page_id | safe }}", "{{ page.permalink | safe }}")'>Read</button>
       </div>
-      <div class ="justify-content-center row">
+      <div class="justify-content-center row">
         Published {{ page.date }}
       </div>
     </div>
   </div>
   {% endfor %}
-</ul>
-{% endblock content %}
+  {% endblock content %}
