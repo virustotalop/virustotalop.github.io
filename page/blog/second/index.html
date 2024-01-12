@@ -1,0 +1,61 @@
+
+    <p>🐉 Here be dragons! We are in uncharted territory... err at least I am! I decided to redo my personal website again because there were a few things I wasn't happy with. The performance of using a lot of JavaScript where things could be built and then deployed led to my decision to start looking into static website generators. I've used a few static website generators before those being: Hugo, Jekyll and MkDocs. I gravitated towards Hugo again but after some trouble getting things on first run working I decided to look for an alternative and I landed on this <a href="https://about.gitlab.com/blog/2022/04/18/comparing-static-site-generators/">blog post by Gitlab.</a> I had never heard of <a href="https://www.getzola.org/">Zola</a> before so I decided to look at the documentation and it looked like just what I was looking for. So off I went getting it running in docker.</p>
+<h2 id="so-many-things-to-do">So many things to do</h2>
+<p>I wasn't sure what direction exactly I wanted to go in when I decided to redo my website but I had a few issues issues that I wanted to tackle.</p>
+<ol>
+<li>Blog performance</li>
+<li>Code card performance</li>
+<li>The ability to keep the website a SPA </li>
+</ol>
+<h2 id="performance">Performance</h2>
+<p>The blog system and code cards were built using a very similar system. The general idea is that the content is taken from JSON and markdown files in the case of the blog and then the elements were inserting into the dom. The issue with this is that numerous inserts on page load would slow down page loads and in the case of the blog the content inserts into the dom could be quite large.</p>
+<p>To try to work against this performance issue the idea was just to compile the content before it is ever served to the user, similar to server side rendering but without the server. So instead of loading in content from JSON and markdown files when the web page is being loaded we just pre-render everything that would be put on the page. Below is an example of before and after how code cards were loaded.</p>
+<h3 id="before">Before</h3>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>	</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">element </span><span>= document.</span><span style="color:#96b5b4;">getElementById</span><span>(&#39;</span><span style="color:#a3be8c;">open-source-projects</span><span>&#39;);
+</span><span>	</span><span style="color:#b48ead;">const </span><span style="color:#8fa1b3;">createCard </span><span>= (</span><span style="color:#bf616a;">projectName</span><span>, </span><span style="color:#bf616a;">description</span><span>, </span><span style="color:#bf616a;">url</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>		new CodeCard(</span><span style="color:#bf616a;">projectName</span><span>, </span><span style="color:#bf616a;">description</span><span>, </span><span style="color:#bf616a;">url</span><span>).</span><span style="color:#8fa1b3;">render</span><span>(</span><span style="color:#bf616a;">element</span><span>);
+</span><span>	};
+</span><span>	</span><span style="color:#b48ead;">const </span><span style="color:#8fa1b3;">parseDescription </span><span>= (</span><span style="color:#bf616a;">description</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>		</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">built </span><span>= &quot;&quot;;
+</span><span>		</span><span style="color:#bf616a;">description</span><span>.</span><span style="color:#96b5b4;">forEach</span><span>((</span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>			</span><span style="color:#bf616a;">built </span><span>+= </span><span style="color:#bf616a;">value </span><span>+ &#39; &#39;;	
+</span><span>		});
+</span><span>		</span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">built</span><span>;
+</span><span>	};
+</span><span>	</span><span style="color:#bf616a;">$</span><span>.</span><span style="color:#8fa1b3;">getJSON</span><span>(&quot;</span><span style="color:#a3be8c;">page/json/code-cards.json</span><span>&quot;, (</span><span style="color:#bf616a;">data</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>		</span><span style="color:#bf616a;">$</span><span>.</span><span style="color:#8fa1b3;">each</span><span>(</span><span style="color:#bf616a;">data</span><span>, (</span><span style="color:#bf616a;">key</span><span>, </span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>			</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">description </span><span>= </span><span style="color:#8fa1b3;">parseDescription</span><span>(</span><span style="color:#bf616a;">value</span><span>[&#39;</span><span style="color:#a3be8c;">description</span><span>&#39;]);
+</span><span>			</span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">url </span><span>= </span><span style="color:#bf616a;">value</span><span>[&#39;</span><span style="color:#a3be8c;">url</span><span>&#39;];
+</span><span>			</span><span style="color:#8fa1b3;">createCard</span><span>(</span><span style="color:#bf616a;">key</span><span>, </span><span style="color:#bf616a;">description</span><span>, </span><span style="color:#bf616a;">url</span><span>);
+</span><span>		});
+</span><span>	});
+</span></code></pre>
+<h3 id="after">After</h3>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">div </span><span style="color:#8fa1b3;">id</span><span>=&quot;</span><span style="color:#a3be8c;">open-source-projects</span><span>&quot; </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">card-section justify-content-center row</span><span>&quot;&gt;
+</span><span>	{% block content %}
+</span><span>	{% for page in section.pages %}
+</span><span>	&lt;</span><span style="color:#bf616a;">div </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">card code-card</span><span>&quot;&gt;
+</span><span>		&lt;</span><span style="color:#bf616a;">div </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">card-body</span><span>&quot;&gt;
+</span><span>			&lt;</span><span style="color:#bf616a;">h4 </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">card-title text-center</span><span>&quot;&gt;{{ page.title | safe}}&lt;/</span><span style="color:#bf616a;">h4</span><span>&gt;
+</span><span>			&lt;</span><span style="color:#bf616a;">p </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">card-text</span><span>&quot;&gt;{{ page.content | safe}}&lt;/</span><span style="color:#bf616a;">p</span><span>&gt;
+</span><span>		&lt;/</span><span style="color:#bf616a;">div</span><span>&gt;
+</span><span>		&lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span>=&quot;</span><span style="color:#a3be8c;">{{ page.extra.url }}</span><span>&quot; </span><span style="color:#d08770;">target</span><span>=&quot;</span><span style="color:#a3be8c;">_blank</span><span>&quot; </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">btn btn-primary font</span><span>&quot;&gt; &lt;</span><span style="color:#bf616a;">i </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">fab fa-github</span><span>&quot;&gt;&lt;/</span><span style="color:#bf616a;">i</span><span>&gt; View
+</span><span>			on Github &lt;/</span><span style="color:#bf616a;">a</span><span>&gt;
+</span><span>	&lt;/</span><span style="color:#bf616a;">div</span><span>&gt;
+</span><span>	{% endfor %}
+</span><span>	{% endblock content %}
+</span><span>&lt;/</span><span style="color:#bf616a;">div</span><span>&gt;
+</span></code></pre>
+<h3 id="results">Results</h3>
+<p>Well.... I don't have any real performance metrics yet but from the limited testing I have done with Lighthouse metrics the page load for the blog is very fast scoring a 99 as of writing this blog post. I may write a more detailed blog post later but this refactor was done primarily because I could see the writing on the wall for performance. The blog was the most egregious violation of performance, I was able to mostly solve this by making the content truncate but I wasn't happy with the implementation and it felt <em>hacky</em> at best. That being said the blog has been redesigned for now to only show the post's title, publication date and a button to read more. This will likely be redone later to restore something similar to the previous solution but built ahead of time.</p>
+<h2 id="spa-single-page-application-framework">SPA (single page application) Framework</h2>
+<p>I was able to keep my previous SPA framework that I built and use it mostly the same. There were some things that needed to be done like telling pages where to load from since zola puts them in a different location. In the future the SPA framework does need to be cleaned up since I currently have instances like this in the code still.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#bf616a;">pageRegistrar</span><span>.</span><span style="color:#8fa1b3;">register</span><span>(new Page(&quot;</span><span style="color:#a3be8c;">blog</span><span>&quot;, () </span><span style="color:#b48ead;">=&gt; </span><span>{}, </span><span style="color:#ebcb8b;">Location</span><span>.</span><span style="color:#bf616a;">STATIC</span><span>));
+</span></code></pre>
+<p>Eventually I will convert all the pages to zola or they may all be by the time this actually gets published to my site. When all the pages are converted I should just then be able to have something like the below.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#bf616a;">pageRegistrar</span><span>.</span><span style="color:#8fa1b3;">register</span><span>(new Page(&quot;</span><span style="color:#a3be8c;">blog</span><span>&quot;));
+</span></code></pre>
+<p>Over time I'm sure I will probably add more properties but I would like to fully remove the JavaScript rendering system I built.</p>
+<h2 id="so-long-and-thanks-for-all-the-fish">So Long and Thanks for all the Fish</h2>
+<p>Well if you actually decided to read this thank you! I don't think anyone is actually going to read this but putting some of the technical details from things I work on into writing gives me some interesting ideas and allows me to reflect on the work that I've done. <em>Pssst</em> hit ↑ ↑ ↓ ↓ ← → ← → B A [Enter]</p>
+

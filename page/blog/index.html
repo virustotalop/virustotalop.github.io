@@ -1,0 +1,46 @@
+<!-- Projects header -->
+<div class="justify-content-center row">
+  <div class="section-header">BLOG</div>
+</div>
+<script>
+  const loadPost = (divId, link) => {
+    console.log(divId);
+    console.log(link);
+    $("#" + divId + "-div").load(link, () => {
+      $("#" + divId + "-button").hide();
+      console.log("Loaded");
+    });
+  }
+</script>
+<div class="justify-content-center row">
+  
+  
+  <div class="justify-content-center card blog-card">
+    <div class="card-body">
+      <h1 class="blog-h1 justify-content-center row">Here Be Dragons</h1>
+      <div id="here-be-dragons-div" class="justify-content-center"></div>
+      <div class="justify-content-center row">
+        <button id="here-be-dragons-button" class="btn btn-primary btn-blog-post"
+          onclick='loadPost("here-be-dragons", "https://virustotalop.github.io/page/blog/second/")'>Read</button>
+      </div>
+      <div class="justify-content-center row">
+        Published 2024-01-12
+      </div>
+    </div>
+  </div>
+  
+  <div class="justify-content-center card blog-card">
+    <div class="card-body">
+      <h1 class="blog-h1 justify-content-center row">Hello World</h1>
+      <div id="hello-world-div" class="justify-content-center"></div>
+      <div class="justify-content-center row">
+        <button id="hello-world-button" class="btn btn-primary btn-blog-post"
+          onclick='loadPost("hello-world", "https://virustotalop.github.io/page/blog/first/")'>Read</button>
+      </div>
+      <div class="justify-content-center row">
+        Published 2021-02-14
+      </div>
+    </div>
+  </div>
+  
+  
