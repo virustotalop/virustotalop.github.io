@@ -1,6 +1,5 @@
 +++
 title = "Anonymizing Text"
-sort_by = "title"
 [extra]
 url = "https://github.com/virustotalop/anonymizingtext"
 +++
