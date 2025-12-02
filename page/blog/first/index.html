@@ -1,0 +1,136 @@
+
+    <p>🚀 We have lift off! This is the first blog post on my newly redesigned website! I figured what better way to kick off the blog posts besides detailing how the website was built! This website was built primarily using <a href="https://jquery.com/">jquery</a> for dynamic loading and blog posts are generated using <a href="https://github.com/showdownjs/showdown">showdown</a>. </p>
+<h2 id="design-philosophy">Design Philosophy</h2>
+<p>The design philosophy for this website has been to try to architect concepts from the ground up as much as possible. While I could have used frameworks such as react or angular to design the website I decided to try to roll my own system instead. The reasons for this being that I don't really like web design but I do like programming and what better to try to enjoy web design besides trying to roll my own system for generating and putting that content on the page. </p>
+<h2 id="page-loading">Page Loading</h2>
+<p>The way the website works from a design standpoint is fairly simple. I have an <code>index.html</code> that has the static header and footer that is rendered on every page. Every page is then rendered via their own Javascript file that gets loaded in from the <code>index.html</code>. This page loading is done by the <code>PageRegistrar</code></p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">PageRegistrar </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">	
+</span><span style="color:#eff1f5;">	</span><span style="color:#b48ead;">constructor</span><span>() </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">		</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">pages </span><span>= </span><span style="color:#eff1f5;">[];
+</span><span style="color:#eff1f5;">		</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">currentPage </span><span>= </span><span style="color:#d08770;">null</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">		</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">registerNavigationHandler</span><span style="color:#eff1f5;">();
+</span><span style="color:#eff1f5;">	}
+</span><span style="color:#eff1f5;">	</span><span style="color:#8fa1b3;">register</span><span>(</span><span style="color:#bf616a;">page</span><span>) </span><span style="color:#eff1f5;">{ </span><span style="color:#65737e;">//When a page is loaded it adds the page to the registrar
+</span><span style="color:#eff1f5;">		</span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">.</span><span style="color:#bf616a;">pages</span><span style="color:#eff1f5;">.</span><span style="color:#96b5b4;">push</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">page</span><span style="color:#eff1f5;">); 
+</span><span style="color:#eff1f5;">		</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">name </span><span>= </span><span style="color:#bf616a;">page</span><span style="color:#eff1f5;">.name; </span><span style="color:#65737e;">//Get the name of the page
+</span><span style="color:#eff1f5;">		</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">outsideThis </span><span>= </span><span style="color:#bf616a;">this</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">		</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">poundName </span><span>= &quot;</span><span style="color:#a3be8c;">#</span><span>&quot; + </span><span style="color:#bf616a;">name</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">		</span><span style="color:#8fa1b3;">$</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">poundName </span><span>+ &quot;</span><span style="color:#a3be8c;">-button</span><span>&quot;</span><span style="color:#eff1f5;">).</span><span style="color:#96b5b4;">click</span><span style="color:#eff1f5;">(</span><span>() </span><span style="color:#b48ead;">=&gt; </span><span style="color:#eff1f5;">{ </span><span style="color:#65737e;">//Register page with the menu button
+</span><span style="color:#eff1f5;">            </span><span style="color:#bf616a;">outsideThis</span><span style="color:#eff1f5;">.</span><span style="color:#8fa1b3;">setCurrentPage</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">name</span><span style="color:#eff1f5;">);
+</span><span style="color:#eff1f5;">            </span><span style="color:#65737e;">//When this function is ran the page switch function is performed
+</span><span style="color:#eff1f5;">		});
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>Below is an example of how the home page gets rendered</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#65737e;">//Load page
+</span><span style="color:#bf616a;">pageRegistrar</span><span>.</span><span style="color:#8fa1b3;">register</span><span>(new Page(&quot;</span><span style="color:#a3be8c;">home</span><span>&quot;, () </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#65737e;">//Content goes here
+</span><span>}));
+</span></code></pre>
+<p>When the <code>register</code> method gets called the <code>Page</code> object for home gets registered as a page. Then when a page is navigated to the page if not already loaded it is then lazily loaded with <a href="https://jquery.com/">jquery</a>.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fa1b3;">lazyLoadPage</span><span>(</span><span style="color:#bf616a;">page</span><span>) {
+</span><span>	</span><span style="color:#b48ead;">if</span><span>(!</span><span style="color:#bf616a;">page</span><span>.</span><span style="color:#bf616a;">loaded</span><span>) { </span><span style="color:#65737e;">//Perform the check to see if the page is loaded
+</span><span>		</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">pageName </span><span>= </span><span style="color:#bf616a;">page</span><span>.name;
+</span><span>		</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">divName </span><span>= </span><span style="color:#bf616a;">pageName </span><span>+ &quot;</span><span style="color:#a3be8c;">-page</span><span>&quot;; </span><span style="color:#65737e;">//Create page div
+</span><span>		</span><span style="color:#8fa1b3;">$</span><span>(&quot;</span><span style="color:#a3be8c;">#pages</span><span>&quot;).</span><span style="color:#96b5b4;">append</span><span>(&#39;</span><span style="color:#a3be8c;">&lt;div id=&quot;</span><span>&#39; + </span><span style="color:#bf616a;">divName </span><span>+ &#39;</span><span style="color:#a3be8c;">&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;</span><span>&#39;);
+</span><span>         </span><span style="color:#8fa1b3;">$</span><span>(&quot;</span><span style="color:#a3be8c;">#</span><span>&quot; + </span><span style="color:#bf616a;">divName</span><span>).</span><span style="color:#96b5b4;">load</span><span>(&quot;</span><span style="color:#a3be8c;">page/html/</span><span>&quot; + </span><span style="color:#bf616a;">pageName </span><span>+ &quot;</span><span style="color:#a3be8c;">.html</span><span>&quot;, </span><span style="color:#bf616a;">page</span><span>.</span><span style="color:#bf616a;">renderer</span><span>);
+</span><span>        </span><span style="color:#65737e;">//Load page via jquery from relavent html file
+</span><span>		</span><span style="color:#bf616a;">page</span><span>.</span><span style="color:#bf616a;">loaded </span><span>= </span><span style="color:#d08770;">true</span><span>; </span><span style="color:#65737e;">//Set the page as loaded
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<p>Even though I had pages that could be dynamically loaded at this point what about those browser navigation buttons? Well as I would learn that was actually pretty easy to implement! Below you can find how I handle forward and back buttons. The gist of is that I use the <code>popstate</code> and then extract the page from the url by using a bit of string manipulation.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">getPageFromURL</span><span>() {
+</span><span>	</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">loc </span><span>= &quot;&quot; + window.location;
+</span><span>	</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">pageIndex </span><span>= </span><span style="color:#bf616a;">loc</span><span>.</span><span style="color:#96b5b4;">indexOf</span><span>(&#39;</span><span style="color:#a3be8c;">#page=</span><span>&#39;); </span><span style="color:#65737e;">//Find index
+</span><span>	</span><span style="color:#b48ead;">if</span><span>(</span><span style="color:#bf616a;">pageIndex </span><span>== -</span><span style="color:#d08770;">1</span><span>) { </span><span style="color:#65737e;">//If index is -1 that means the url hasn&#39;t been redirected yet
+</span><span>		</span><span style="color:#b48ead;">return </span><span style="color:#d08770;">null</span><span>;
+</span><span>	}
+</span><span>	</span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">loc</span><span>.</span><span style="color:#96b5b4;">substring</span><span>(</span><span style="color:#bf616a;">pageIndex </span><span>+ </span><span style="color:#d08770;">6</span><span>);
+</span><span>}
+</span><span>
+</span><span style="color:#8fa1b3;">registerNavigationHandler</span><span>() { </span><span style="color:#65737e;">//This handles the navigation buttons
+</span><span>	</span><span style="color:#8fa1b3;">$</span><span>(window).</span><span style="color:#8fa1b3;">on</span><span>(&#39;</span><span style="color:#a3be8c;">popstate</span><span>&#39;, (</span><span style="color:#bf616a;">event</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>		</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">pageName </span><span>= </span><span style="color:#8fa1b3;">getPageFromURL</span><span>();
+</span><span>		</span><span style="color:#b48ead;">if</span><span>(</span><span style="color:#bf616a;">pageName </span><span>!= </span><span style="color:#d08770;">null</span><span>) {
+</span><span>			</span><span style="color:#bf616a;">this</span><span>.</span><span style="color:#8fa1b3;">setCurrentPage</span><span>(</span><span style="color:#bf616a;">pageName</span><span>);
+</span><span>		}
+</span><span>	});
+</span><span>}
+</span></code></pre>
+<h2 id="building-a-blog">Building a blog</h2>
+<p>Building a fully static blog was something I wanted to do but I couldn't find a great way of doing it. I knew of frameworks for fully static websites such as <a href="https://gohugo.io/">hugo</a> but I didn't want a monolithic framework to build off of. So then I set off with <a href="https://github.com/virustotalop/virustotalop.github.io/issues/10">this issue all the way back in May of 2020</a>. In the end I didn't find a solution directly to my problem but I did manage to hammer my way to a solution when maybe I needed a different tool. In comes <a href="https://github.com/showdownjs/showdown">showdown</a>, <a href="https://github.com/highlightjs/highlight.js/">highlightjs</a> and <a href="https://jquery.com/">jquery</a> to the rescue. The blog works by loading a json file that has some metadata about the blog post.</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>	&quot;</span><span style="color:#a3be8c;">first</span><span>&quot;: 
+</span><span>	{
+</span><span>		&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">first-post.md</span><span>&quot;,
+</span><span>		&quot;</span><span style="color:#a3be8c;">time</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">1610179321635</span><span>&quot;
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<p>This file has the label for the post, then name of the corresponding file and the time of which the post was created. This data is then loading in via <a href="https://jquery.com/">jquery</a> </p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#bf616a;">$</span><span>.</span><span style="color:#8fa1b3;">getJSON</span><span>(&quot;</span><span style="color:#a3be8c;">blog/json/blog.json</span><span>&quot;, (</span><span style="color:#bf616a;">data</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#bf616a;">$</span><span>.</span><span style="color:#8fa1b3;">each</span><span>(</span><span style="color:#bf616a;">data</span><span>, (</span><span style="color:#bf616a;">key</span><span>, </span><span style="color:#bf616a;">value</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{ </span><span style="color:#65737e;">//Here we parse each post
+</span></code></pre>
+<p>The data from each post is then processed to get the relevant blog post information.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">postName </span><span>= </span><span style="color:#bf616a;">postFileName</span><span>.</span><span style="color:#96b5b4;">replace</span><span>(&quot;</span><span style="color:#a3be8c;">.md</span><span>&quot;, &quot;&quot;);
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">postTime </span><span>= new Date(</span><span style="color:#96b5b4;">parseInt</span><span>(</span><span style="color:#bf616a;">value</span><span>.</span><span style="color:#bf616a;">time</span><span>));
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">localTime </span><span>= </span><span style="color:#bf616a;">postTime</span><span>.</span><span style="color:#96b5b4;">toLocaleString</span><span>();
+</span></code></pre>
+<p>The blog post is then taken and tranformed with showdown and then formatted.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#bf616a;">$</span><span>.</span><span style="color:#96b5b4;">get</span><span>(</span><span style="color:#bf616a;">blogPost</span><span>, (</span><span style="color:#bf616a;">markdown</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">convertedHTML </span><span>= </span><span style="color:#bf616a;">converter</span><span>.</span><span style="color:#8fa1b3;">makeHtml</span><span>(</span><span style="color:#bf616a;">markdown</span><span>);
+</span><span>    </span><span style="color:#65737e;">//The data is then formatted
+</span><span>    </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">html </span><span>= &#39;</span><span style="color:#a3be8c;">&lt;div class=&quot;justify-content-center row card blog-card&quot; id=&quot;</span><span>&#39;;
+</span><span>    </span><span style="color:#bf616a;">html </span><span>+= </span><span style="color:#bf616a;">postName </span><span>+ &#39;</span><span style="color:#a3be8c;">&quot;</span><span>&#39; + &#39;</span><span style="color:#a3be8c;">&gt;</span><span>&#39;;
+</span><span>	</span><span style="color:#bf616a;">html </span><span>+= &#39;</span><span style="color:#a3be8c;">&lt;div id =&quot;</span><span>&#39; + </span><span style="color:#bf616a;">contentId </span><span>+ &#39;</span><span style="color:#a3be8c;">&quot; class=&quot;justify-content-center&quot;&gt;</span><span>&#39;;  
+</span><span>	</span><span style="color:#bf616a;">html </span><span>+= </span><span style="color:#bf616a;">convertedHTML</span><span>;
+</span><span>	</span><span style="color:#bf616a;">html </span><span>+= &#39;</span><span style="color:#a3be8c;">&lt;/div&gt;</span><span>&#39;
+</span><span>	</span><span style="color:#bf616a;">html </span><span>+= &#39;</span><span style="color:#a3be8c;">&lt;p&gt;Posted </span><span>&#39; + </span><span style="color:#bf616a;">localTime </span><span>+ &#39;</span><span style="color:#a3be8c;">&lt;/p&gt;</span><span>&#39;;
+</span><span>    </span><span style="color:#bf616a;">html </span><span>+= &#39;</span><span style="color:#a3be8c;">&lt;button id=&quot;</span><span>&#39; + </span><span style="color:#bf616a;">buttonId</span><span>;
+</span><span>    </span><span style="color:#bf616a;">html </span><span>+= &#39;</span><span style="color:#a3be8c;">&quot; class=&quot;btn btn-primary btn-blog-post&quot;&gt;Continue Reading&lt;/button&gt;</span><span>&#39;;
+</span><span>    </span><span style="color:#bf616a;">html </span><span>+= &#39;</span><span style="color:#a3be8c;">&lt;/div&gt;</span><span>&#39;;
+</span></code></pre>
+<p>There is probably a better way of doing the html formatting but 🤷‍♂️. After the code is formatted the code then gets added to the dom via <a href="https://jquery.com/">jquery</a> as well as some formatting and changing the display of the post.</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fa1b3;">$</span><span>(&#39;</span><span style="color:#a3be8c;">#blog-page</span><span>&#39;).</span><span style="color:#96b5b4;">append</span><span>(</span><span style="color:#bf616a;">html</span><span>).</span><span style="color:#8fa1b3;">ready</span><span>(() </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">contentSection </span><span>= </span><span style="color:#8fa1b3;">$</span><span>(&#39;</span><span style="color:#a3be8c;">#</span><span>&#39; + </span><span style="color:#bf616a;">contentId</span><span>);
+</span><span>    </span><span style="color:#bf616a;">contentSection</span><span>.</span><span style="color:#8fa1b3;">children</span><span>().</span><span style="color:#8fa1b3;">each</span><span>((</span><span style="color:#bf616a;">index</span><span>, </span><span style="color:#bf616a;">element</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>    </span><span style="color:#65737e;">//Iterate through each child in the blog post
+</span><span>        </span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#d08770;">1</span><span>; </span><span style="color:#bf616a;">i </span><span>&lt; </span><span style="color:#d08770;">4</span><span>; </span><span style="color:#bf616a;">i</span><span>++) {
+</span><span>            </span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">element</span><span>).</span><span style="color:#8fa1b3;">filter</span><span>(&#39;</span><span style="color:#a3be8c;">h</span><span>&#39; + </span><span style="color:#bf616a;">i</span><span>).</span><span style="color:#8fa1b3;">addClass</span><span>(&#39;</span><span style="color:#a3be8c;">blog-h</span><span>&#39; + </span><span style="color:#bf616a;">i</span><span>);
+</span><span>            </span><span style="color:#65737e;">//Add blog relevant css element to each header 
+</span><span>        }
+</span><span>        </span><span style="color:#65737e;">//Center each header
+</span><span>        </span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">element</span><span>).</span><span style="color:#8fa1b3;">filter</span><span>(&#39;</span><span style="color:#a3be8c;">:header</span><span>&#39;).</span><span style="color:#8fa1b3;">addClass</span><span>(&#39;</span><span style="color:#a3be8c;">justify-content-center row</span><span>&#39;)
+</span><span>        </span><span style="color:#65737e;">//Highlight each code block with highlight.js
+</span><span>		</span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">element</span><span>).</span><span style="color:#8fa1b3;">filter</span><span>(&#39;</span><span style="color:#a3be8c;">pre</span><span>&#39;).</span><span style="color:#8fa1b3;">each</span><span>((</span><span style="color:#bf616a;">index</span><span>, </span><span style="color:#bf616a;">codeBlock</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>		    </span><span style="color:#bf616a;">hljs</span><span>.</span><span style="color:#8fa1b3;">highlightBlock</span><span>(</span><span style="color:#bf616a;">codeBlock</span><span>);
+</span><span>        });
+</span><span>        </span><span style="color:#65737e;">//Hide all elements besides the header and the first paragraph
+</span><span>        </span><span style="color:#b48ead;">if</span><span>(</span><span style="color:#bf616a;">index </span><span>&gt; </span><span style="color:#d08770;">1</span><span>) {
+</span><span>            </span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">element</span><span>).</span><span style="color:#8fa1b3;">hide</span><span>();
+</span><span>        }
+</span><span>        </span><span style="color:#65737e;">//Handle clicking for the read more button
+</span><span>        </span><span style="color:#8fa1b3;">$</span><span>(&#39;</span><span style="color:#a3be8c;">#</span><span>&#39; + </span><span style="color:#bf616a;">buttonId</span><span>).</span><span style="color:#96b5b4;">click</span><span>(() </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>			</span><span style="color:#8fa1b3;">$</span><span>(&quot;</span><span style="color:#a3be8c;">#</span><span>&quot; + </span><span style="color:#bf616a;">contentId</span><span>).</span><span style="color:#8fa1b3;">children</span><span>().</span><span style="color:#8fa1b3;">each</span><span>((</span><span style="color:#bf616a;">i</span><span>, </span><span style="color:#bf616a;">element</span><span>) </span><span style="color:#b48ead;">=&gt; </span><span>{
+</span><span>                </span><span style="color:#65737e;">//Show hidden elements
+</span><span>                </span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">element</span><span>).</span><span style="color:#8fa1b3;">show</span><span>();
+</span><span>            });
+</span><span>            </span><span style="color:#65737e;">//Hide button after click
+</span><span>			</span><span style="color:#8fa1b3;">$</span><span>(&#39;</span><span style="color:#a3be8c;">#</span><span>&#39; + </span><span style="color:#bf616a;">buttonId</span><span>).</span><span style="color:#8fa1b3;">hide</span><span>();
+</span><span>		});
+</span><span>	});
+</span><span>});
+</span></code></pre>
+<h2 id="thank-you-for-reading">Thank you for reading</h2>
+<p>If you made it this far thank you for reading. Blogging is something I intend on doing in the future because hopefully someone else will find it helpful if they somehow stumble across this as well as it allowing me to reflect on the technical details of different projects. If you want to see anything that I missed or or to try to find any of the <strong>hidden features</strong> you can find the <a href="https://github.com/virustotalop/virustotalop.github.io">code here on Github</a> I would also like to thank all the people who helped me design or come up with ideas for this website. Check them out, they are all really cool people.</p>
+<h2 id="credits">Credits</h2>
+<p>Thank you to the all the people who helped with the design of this website.</p>
+<p><a href="https://github.com/DanHues">@DanHues</a></p>
+<p><a href="https://github.com/FelixOBrien">@FelixOBrien</a></p>
+<p><a href="https://github.com/haloflooder">@haloflooder</a></p>
+<p><a href="https://github.com/lhurt51">@lhurt51</a></p>
+<p><a href="https://github.com/magicmq">@magicmq</a></p>
+

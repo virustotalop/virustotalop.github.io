@@ -1,0 +1,1 @@
+pageRegistrar.register(new Page("home", () => {}, Location.STATIC));
